@@ -11,7 +11,8 @@ import { EventIcon } from "@/components/decor/EventIcon";
 import { burstConfetti } from "@/components/ui/confetti";
 
 function EventCard({ evento, index }: { evento: Evento; index: number }) {
-  const destaque = "destaque" in evento ? evento.destaque : null;
+  const largo = "largo" in evento && evento.largo;
+  const destaque = "selo" in evento ? (evento.selo as string) : null;
   const card = useRef<HTMLDivElement>(null);
 
   // tilt 3D seguindo o mouse
@@ -47,7 +48,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
   const onClick = (e: MouseEvent<HTMLAnchorElement>) => burstConfetti(e.clientX, e.clientY, 50);
 
   return (
-    <li data-card className={`group relative [perspective:1100px] ${destaque ? "col-span-2" : ""}`} style={{ "--accent": evento.cor } as CSSProperties}>
+    <li data-card className={`group relative [perspective:1100px] ${largo ? "col-span-2" : ""}`} style={{ "--accent": evento.cor } as CSSProperties}>
       {/* glow por trás */}
       <div
         aria-hidden
@@ -67,7 +68,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
         />
         {/* celular: foto pequena (quadrada / larga no destaque) · desktop: foto grande */}
         <div
-          className={`relative overflow-hidden rounded-[10px] sm:rounded-[22px] ${destaque ? "aspect-[2.1/1] sm:aspect-[11/4]" : "aspect-square sm:aspect-[4/3]"}`}
+          className={`relative overflow-hidden rounded-[10px] sm:rounded-[22px] ${largo ? "aspect-[2.1/1] sm:aspect-[11/4]" : "aspect-square sm:aspect-[4/3]"}`}
           data-cursor="hover"
         >
           <Image
@@ -75,7 +76,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
             src={evento.foto.src}
             alt={evento.foto.alt}
             fill
-            sizes={destaque ? "(min-width:1024px) 62vw, (min-width:640px) 92vw, 64vw" : "(min-width:1024px) 30vw, (min-width:640px) 45vw, 32vw"}
+            sizes={largo ? "(min-width:1024px) 62vw, (min-width:640px) 92vw, 64vw" : "(min-width:1024px) 30vw, (min-width:640px) 45vw, 32vw"}
             className="object-cover transition-transform duration-[1.1s] ease-[var(--ease-out)] group-hover:scale-110"
             style={{ objectPosition: "pos" in evento.foto ? evento.foto.pos : undefined }}
           />

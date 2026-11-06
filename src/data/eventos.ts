@@ -2,7 +2,8 @@
  * Eventos que o espaço recebe (cards da seção "Eventos").
  * cor: uma das cores do wordmark (CSS variable).
  * icone: "balao" | "taca" | "capelo" | "coroa" | "chupeta" | "maleta"
- * destaque: texto do selo (opcional) — o card ganha destaque e ocupa duas colunas
+ * largo: true — o card ganha destaque e ocupa duas colunas
+ * selo: texto opcional de um selo sobre a foto
  */
 export const eventosSecao = {
   eyebrow: "Eventos que recebemos",
@@ -15,12 +16,12 @@ export const eventosSecao = {
 
 export const eventos = [
   {
-    titulo: "Aniversário infantil",
-    descricao: "Piscina de bolinhas, jogos e muita diversão para a criançada. É a nossa especialidade!",
-    destaque: "Nosso foco ✦",
+    titulo: "Espaço Kids",
+    descricao: "Playground completo com piscina de bolinhas, túnel, escorregador e jogos — a criançada brinca à vontade enquanto você aproveita a festa.",
+    largo: true,
     icone: "balao",
     cor: "var(--pp-P)",
-    foto: { src: "/images/eventos/aniversario-infantil.jpg", alt: "Playground com piscina de bolinhas, túnel e escorregador", pos: "50% 45%" },
+    foto: { src: "/images/eventos/espaco-kids.jpg", alt: "Playground com piscina de bolinhas, túnel e escorregador", pos: "50% 45%" },
   },
   {
     titulo: "Chá de bebê / revelação",
@@ -30,11 +31,11 @@ export const eventos = [
     foto: { src: "/images/eventos/cha-revelacao.jpg", alt: "Decoração de chá de bebê com ursinhos em tons de azul e bege", pos: "50% 45%" },
   },
   {
-    titulo: "15 anos",
-    descricao: "Uma noite especial, do jeitinho que você sonhou.",
+    titulo: "Aniversário infantil",
+    descricao: "Decoração temática do jeitinho do seu filho, com o personagem favorito dele.",
     icone: "coroa",
-    cor: "var(--pp-o2)",
-    foto: { src: "/images/eventos/15-anos.jpg", alt: "[FOTO: 15 anos]" },
+    cor: "var(--pp-m)",
+    foto: { src: "/images/eventos/aniversario-infantil.jpg", alt: "Decoração de aniversário infantil temática em tons de azul", pos: "50% 40%" },
   },
 ] as const;
 

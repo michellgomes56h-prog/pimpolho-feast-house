@@ -51,7 +51,6 @@ function svg({ w, h, label, seed, hueA, hueB }) {
 }
 
 const jobs = [
-  { out: "public/images/eventos/15-anos.jpg", w: 900, h: 700, label: "15 anos", seed: 57, hueA: "#8a3a12", hueB: "#ff8a1f" },
   { out: "public/og-image.jpg", w: 1200, h: 630, label: "fachada / salão (Open Graph)", seed: 5, hueA: "#5a230d", hueB: "#ff3ea5" },
 ];
 

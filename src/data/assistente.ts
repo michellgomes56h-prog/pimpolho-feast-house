@@ -74,7 +74,7 @@ export const fluxoOrcamento = {
     {
       campo: "evento",
       pergunta: "Qual é o tipo de evento?",
-      opcoes: ["Aniversário infantil", "Chá de bebê/revelação", "Festa personalizada", "15 anos", "Outro"],
+      opcoes: ["Aniversário infantil", "Chá de bebê/revelação", "Festa personalizada", "Outro"],
       placeholder: "Ou digite o tipo de evento…",
     },
     { campo: "data", pergunta: "Qual a data desejada?", opcoes: [], placeholder: "Ex.: 14/03 ou março", tipo: "texto" },
