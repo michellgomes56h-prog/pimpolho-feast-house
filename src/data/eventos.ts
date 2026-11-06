@@ -9,6 +9,8 @@ export const eventosSecao = {
   titulo: "Cada festa com a sua cara.",
   texto: "Festa infantil é a nossa especialidade — e o espaço também recebe chá de bebê, formaturas e outros eventos.",
   botao: "Quero esse evento",
+  /** Versão curta do botão (celular). */
+  botaoCurto: "Orçamento",
 };
 
 export const eventos = [
@@ -25,7 +27,7 @@ export const eventos = [
     descricao: "O momento mais esperado, com família e amigos por perto.",
     icone: "chupeta",
     cor: "var(--pp-i)",
-    foto: { src: "/images/eventos/cha-revelacao.jpg", alt: "[FOTO: chá de bebê]" },
+    foto: { src: "/images/eventos/cha-revelacao.jpg", alt: "Decoração de chá de bebê com ursinhos em tons de azul e bege", pos: "50% 45%" },
   },
   {
     titulo: "Formatura",

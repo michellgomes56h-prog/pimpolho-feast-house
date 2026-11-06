@@ -23,28 +23,28 @@ export function Footer() {
   const link = "text-white/80 transition-colors hover:text-white";
 
   return (
-    <footer data-loop-zone className="relative overflow-hidden border-t border-white/10 bg-[var(--bg-darkest)] pt-20">
+    <footer data-loop-zone className="relative overflow-hidden border-t border-white/10 bg-[var(--bg-darkest)] pt-12 sm:pt-20">
       <div
         aria-hidden
         className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[var(--glow-amber)] opacity-25 blur-[120px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-5 gap-y-8 text-sm sm:gap-12 sm:text-base lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div className="col-span-2 lg:col-span-1">
             <a href="#topo" onClick={toTop} className="inline-flex items-end gap-3">
-              <PimpolhoWordmark className="text-5xl" />
+              <PimpolhoWordmark className="text-4xl sm:text-5xl" />
               <span className="mb-1 text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.32em] text-[var(--text-muted)]">
                 Feast
                 <br />
                 House
               </span>
             </a>
-            <p className="mt-5 max-w-xs text-[var(--text-muted)]">{footer.frase}</p>
+            <p className="mt-3 max-w-xs text-[var(--text-muted)] sm:mt-5">{footer.frase}</p>
           </div>
 
           <nav aria-label="Rodapé">
-            <p className="eyebrow mb-5">{footer.colunas.navegar}</p>
-            <ul className="space-y-3">
+            <p className="eyebrow mb-3 sm:mb-5">{footer.colunas.navegar}</p>
+            <ul className="space-y-2 sm:space-y-3">
               {nav.map((l) => (
                 <li key={l.href}>
                   <a href={l.href} onClick={go(l.href)} className={link}>
@@ -56,11 +56,11 @@ export function Footer() {
           </nav>
 
           <div>
-            <p className="eyebrow mb-5">{footer.colunas.contato}</p>
-            <ul className="space-y-3">
+            <p className="eyebrow mb-3 sm:mb-5">{footer.colunas.contato}</p>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className={link}>
-                  WhatsApp · {contato.whatsapp}
+                  WhatsApp · {contato.whatsappExibicao}
                 </a>
               </li>
               <li>
@@ -71,8 +71,8 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <p className="eyebrow mb-5">{footer.colunas.visite}</p>
+          <div className="col-span-2 md:col-span-1">
+            <p className="eyebrow mb-3 sm:mb-5">{footer.colunas.visite}</p>
             <address className="space-y-1 not-italic text-white/80">
               <p>{contato.endereco}</p>
               <p>
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
 
         {/* wordmark gigante */}
-        <div aria-hidden className="mt-20 flex select-none justify-center overflow-hidden opacity-90">
+        <div aria-hidden className="mt-10 flex select-none sm:mt-20 justify-center overflow-hidden opacity-90">
           <PimpolhoWordmark decorative className="translate-y-[18%] text-[clamp(5rem,22vw,22rem)] leading-[0.8]" />
         </div>
       </div>

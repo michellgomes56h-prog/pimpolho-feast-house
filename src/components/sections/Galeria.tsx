@@ -15,9 +15,9 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
 /** Tamanho de cada foto no trilho (desktop usa vh para caber na seção pinada). */
 const SHAPE: Record<string, string> = {
-  alta: "w-[72vw] sm:w-[46vw] lg:w-auto lg:h-[min(52vh,560px)] aspect-[4/5]",
-  larga: "w-[84vw] sm:w-[60vw] lg:w-auto lg:h-[min(40vh,430px)] aspect-[4/3]",
-  quadrada: "w-[76vw] sm:w-[50vw] lg:w-auto lg:h-[min(44vh,470px)] aspect-square",
+  alta: "w-[42vw] sm:w-[46vw] lg:w-auto lg:h-[min(52vh,560px)] aspect-[4/5]",
+  larga: "w-[62vw] sm:w-[60vw] lg:w-auto lg:h-[min(40vh,430px)] aspect-[4/3]",
+  quadrada: "w-[48vw] sm:w-[50vw] lg:w-auto lg:h-[min(44vh,470px)] aspect-square",
 };
 /** Deslocamento vertical alternado (só desktop). */
 const OFFSET = ["lg:-translate-y-[3vh]", "lg:translate-y-[5vh]", "lg:-translate-y-[1vh]", "lg:translate-y-[3vh]"];
@@ -138,12 +138,12 @@ export function Galeria() {
 
   return (
     <section ref={root} id="galeria" aria-labelledby="galeria-title" className="bg-glow-c relative pb-[60px] sm:pb-[80px] lg:pb-[100px]">
-      <div data-pin className="relative flex flex-col justify-center overflow-hidden py-24 lg:h-[100svh] lg:pb-6 lg:pt-[calc(var(--header-h)+1rem)]">
+      <div data-pin className="relative flex flex-col justify-center overflow-hidden py-12 sm:py-24 lg:h-[100svh] lg:pb-6 lg:pt-[calc(var(--header-h)+1rem)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col justify-between gap-6 px-5 sm:px-8 lg:flex-row lg:items-end lg:px-12">
           <SectionHeading id="galeria-title" eyebrow={galeriaSecao.eyebrow} title={galeriaSecao.titulo} reveal="skew" size="sm" />
           <div data-reveal="fade-up" className="flex items-end gap-4 lg:pb-2" aria-live="polite">
             <p className="flex items-baseline font-extrabold leading-none tracking-[-0.05em]">
-              <span className="relative inline-block overflow-hidden text-[clamp(3.5rem,6vw,5.5rem)]">
+              <span className="relative inline-block overflow-hidden text-[clamp(2.4rem,6vw,5.5rem)]">
                 <span ref={counterRef} className="text-grad inline-block">
                   01
                 </span>
@@ -156,9 +156,9 @@ export function Galeria() {
         {/* trilho */}
         <div
           data-scroller
-          className="mt-10 snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] lg:mt-[4vh] lg:snap-none lg:overflow-visible"
+          className="mt-6 snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] lg:mt-[4vh] lg:snap-none lg:overflow-visible"
         >
-          <ul data-track className="flex w-max items-center gap-5 px-5 sm:gap-8 sm:px-8 lg:gap-14 lg:pl-12 lg:pr-[20vw]">
+          <ul data-track className="flex w-max items-center gap-3 px-5 sm:gap-8 sm:px-8 lg:gap-14 lg:pl-12 lg:pr-[20vw]">
             {galeria.map((f, i) => (
               <li key={f.src} data-item className={`shrink-0 snap-center ${OFFSET[i % OFFSET.length]}`}>
                 <button
@@ -167,9 +167,13 @@ export function Galeria() {
                   className="group block text-left"
                   data-cursor="hover"
                 >
-                  <span data-frame className={`relative block overflow-hidden rounded-[28px] border border-white/12 bg-[var(--bg-mid)] ${SHAPE[f.forma]}`}>
+                  <span
+                    data-frame
+                    className={`relative block overflow-hidden rounded-[16px] sm:rounded-[28px] border border-white/12 bg-[var(--bg-mid)] ${SHAPE[f.forma]}`}
+                  >
                     <span data-parallax className="absolute inset-y-0 -left-[9%] -right-[9%] block">
                       <Image
+                        quality={90}
                         src={f.src}
                         alt={f.alt}
                         fill
@@ -184,7 +188,7 @@ export function Galeria() {
                       </svg>
                     </span>
                   </span>
-                  <span data-caption className="mt-4 flex items-center gap-3 text-sm font-semibold text-white/90">
+                  <span data-caption className="mt-2 flex items-center gap-2 text-xs sm:mt-4 sm:gap-3 sm:text-sm font-semibold text-white/90">
                     <span className="text-xs font-bold tracking-widest text-[var(--lime-cta)]">{pad(i + 1)}</span>
                     <span className="h-px w-6 bg-white/30" />
                     {f.legenda}
@@ -197,7 +201,7 @@ export function Galeria() {
         </div>
 
         {/* barra de progresso da galeria */}
-        <div className="mx-auto mt-10 w-full max-w-[1440px] px-5 sm:px-8 lg:mt-[5vh] lg:px-12">
+        <div className="mx-auto mt-6 w-full max-w-[1440px] px-5 sm:mt-10 sm:px-8 lg:mt-[5vh] lg:px-12">
           <div className="h-px w-full bg-white/12">
             <div data-progress className="h-[2px] w-full origin-left scale-x-0 bg-[linear-gradient(90deg,var(--pp-P),var(--pp-m),var(--pp-p),var(--pp-o2))]" />
           </div>

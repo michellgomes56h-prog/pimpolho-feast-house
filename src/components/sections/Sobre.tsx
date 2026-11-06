@@ -11,7 +11,7 @@ import { Sparkle } from "@/components/decor/Sparkle";
 function RotatingBadge({ text }: { text: string }) {
   const label = `${text} ✦ ${text} ✦ `;
   return (
-    <div className="relative grid h-32 w-32 place-items-center rounded-full bg-[var(--lime-cta)] text-[var(--ink)] shadow-[0_20px_50px_-15px_var(--lime-cta)] sm:h-36 sm:w-36">
+    <div className="relative grid h-24 w-24 place-items-center rounded-full bg-[var(--lime-cta)] text-[var(--ink)] shadow-[0_20px_50px_-15px_var(--lime-cta)] sm:h-36 sm:w-36">
       <div aria-hidden className="absolute inset-0 [animation:orbit_18s_linear_infinite]">
         <svg viewBox="0 0 200 200" className="h-full w-full">
           <defs>
@@ -22,7 +22,7 @@ function RotatingBadge({ text }: { text: string }) {
           </text>
         </svg>
       </div>
-      <Sparkle className="h-8 w-8" color="var(--ink)" />
+      <Sparkle className="h-6 w-6 sm:h-8 sm:w-8" color="var(--ink)" />
     </div>
   );
 }
@@ -66,11 +66,11 @@ export function Sobre() {
   });
 
   return (
-    <section ref={root} data-loop-zone id="o-espaco" aria-labelledby="sobre-title" className="bg-glow-a relative overflow-hidden py-28 sm:py-36">
-      <div data-exit className="mx-auto grid max-w-[1440px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-12">
+    <section ref={root} data-loop-zone id="o-espaco" aria-labelledby="sobre-title" className="bg-glow-a relative overflow-hidden py-16 sm:py-36">
+      <div data-exit className="mx-auto grid max-w-[1440px] items-center gap-12 px-5 sm:gap-16 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:px-12">
         <div>
           <SectionHeading id="sobre-title" eyebrow={sobre.eyebrow} title={sobre.titulo} reveal="words" />
-          <div className="mt-8 max-w-xl space-y-4 text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
+          <div className="mt-5 max-w-xl space-y-3 text-[0.95rem] leading-relaxed sm:mt-8 sm:space-y-4 text-[var(--text-muted)] sm:text-lg">
             {sobre.texto.map((t, i) => (
               <p key={i} data-reveal="lines">
                 {t}
@@ -78,11 +78,11 @@ export function Sobre() {
             ))}
           </div>
 
-          <dl className="mt-14 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10">
+          <dl className="mt-8 grid grid-cols-2 gap-x-5 gap-y-6 sm:mt-14 sm:gap-x-10 sm:gap-y-10">
             {sobre.numeros.map((n, i) => (
-              <div key={n.label} data-stat className="border-t border-white/15 pt-5">
+              <div key={n.label} data-stat className="border-t border-white/15 pt-3 sm:pt-5">
                 <dt className="sr-only">{n.label}</dt>
-                <dd className="flex items-baseline gap-1 text-[clamp(1.9rem,4.2vw,3.6rem)] font-extrabold leading-none tracking-[-0.04em]">
+                <dd className="flex items-baseline gap-1 text-[clamp(1.55rem,4.2vw,3.6rem)] font-extrabold leading-none tracking-[-0.04em]">
                   {n.valor !== null ? (
                     <>
                       {n.prefixo && <span className="mr-1 text-[0.4em] font-bold tracking-normal text-[var(--text-muted)]">{n.prefixo}</span>}
@@ -93,7 +93,7 @@ export function Sobre() {
                     <span className="break-all text-[0.62em] tracking-[-0.02em] text-[var(--lime-cta)]">{n.placeholder}</span>
                   )}
                 </dd>
-                <dd className="mt-3 flex items-center gap-2 text-sm text-[var(--text-muted)]">
+                <dd className="mt-2 flex items-center gap-2 text-xs sm:mt-3 sm:text-sm text-[var(--text-muted)]">
                   <span className="h-1.5 w-1.5 rounded-full" style={{ background: ["var(--pp-P)", "var(--pp-m)", "var(--pp-p)", "var(--pp-i)"][i % 4] }} />
                   {n.label}
                 </dd>
@@ -102,19 +102,19 @@ export function Sobre() {
           </dl>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[520px]">
+        <div className="relative mx-auto w-[72%] max-w-[520px] sm:w-full">
           <div aria-hidden className="absolute -inset-10 rounded-full bg-[var(--pink-hot)] opacity-25 blur-[100px]" />
           <div
             data-arch
             data-cursor="hover"
             className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[32px] border border-white/15 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)]"
           >
-            <Image src={sobre.foto.src} alt={sobre.foto.alt} fill sizes="(min-width:1024px) 520px, 90vw" className="scale-110 object-cover" />
+            <Image quality={90} src={sobre.foto.src} alt={sobre.foto.alt} fill sizes="(min-width:1024px) 520px, 90vw" className="scale-110 object-cover" />
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[var(--bg-deep)]/60 to-transparent" />
           </div>
           {/* arco de contorno */}
           <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-t-[999px] rounded-b-[44px] border border-dashed border-white/15" />
-          <div data-badge className="absolute -bottom-10 -left-4 sm:-left-12">
+          <div data-badge className="absolute -bottom-8 -left-8 sm:-bottom-10 sm:-left-12">
             <RotatingBadge text={sobre.selo} />
           </div>
         </div>

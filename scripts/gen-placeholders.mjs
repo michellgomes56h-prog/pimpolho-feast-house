@@ -51,14 +51,9 @@ function svg({ w, h, label, seed, hueA, hueB }) {
 }
 
 const jobs = [
-  { out: "public/images/galeria/mesa-do-bolo.jpg", w: 1000, h: 1250, label: "mesa do bolo", seed: 17, hueA: "#8a3a12", hueB: "#ff6a8f" },
-  { out: "public/images/galeria/area-externa.jpg", w: 1400, h: 950, label: "área externa", seed: 29, hueA: "#5a3510", hueB: "#2e9f8f" },
-  { out: "public/images/galeria/pista-iluminacao.jpg", w: 1000, h: 1300, label: "pista/iluminação", seed: 41, hueA: "#2a1209", hueB: "#e0682a" },
   { out: "public/images/eventos/formatura.jpg", w: 900, h: 700, label: "formatura", seed: 53, hueA: "#b04a18", hueB: "#ff8a3d" },
   { out: "public/images/eventos/15-anos.jpg", w: 900, h: 700, label: "15 anos", seed: 57, hueA: "#8a3a12", hueB: "#ff8a1f" },
-  { out: "public/images/eventos/cha-revelacao.jpg", w: 900, h: 700, label: "chá revelação/bebê", seed: 61, hueA: "#ff9a52", hueB: "#ff6ab4" },
   { out: "public/images/eventos/corporativo.jpg", w: 900, h: 700, label: "evento corporativo", seed: 67, hueA: "#2a1209", hueB: "#ff9a52" },
-  { out: "public/images/galeria/fachada.jpg", w: 1000, h: 1250, label: "fachada", seed: 71, hueA: "#5a230d", hueB: "#ffb38a" },
   { out: "public/og-image.jpg", w: 1200, h: 630, label: "fachada / salão (Open Graph)", seed: 5, hueA: "#5a230d", hueB: "#ff3ea5" },
 ];
 

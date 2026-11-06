@@ -5,7 +5,9 @@
  */
 export const contato = {
   nome: "Pimpolho Feast House",
-  whatsapp: "[WHATSAPP]",
+  whatsapp: "555591751519",
+  /** Como o número aparece escrito no site. */
+  whatsappExibicao: "(55) 9175-1519",
   instagram: "[INSTAGRAM]", // ex.: "pimpolhofeasthouse" (sem @)
   instagramUrl: "[INSTAGRAM_URL]",
   endereco: "[ENDEREÇO]",

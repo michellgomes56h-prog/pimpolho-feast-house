@@ -35,7 +35,7 @@ const jsonLd = {
   description: site.seo.description,
   url: site.url,
   image: site.seo.ogImage,
-  telephone: contato.whatsapp,
+  telephone: `+${contato.whatsapp}`,
   maximumAttendeeCapacity: contato.capacidade,
   address: {
     "@type": "PostalAddress",

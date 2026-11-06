@@ -23,31 +23,34 @@ export function Depoimentos() {
   });
 
   return (
-    <section ref={root} aria-labelledby="depo-title" className="bg-glow-c relative overflow-hidden py-28 sm:py-36">
+    <section ref={root} aria-labelledby="depo-title" className="bg-glow-c relative overflow-hidden py-16 sm:py-36">
       <div data-exit className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <SectionHeading id="depo-title" eyebrow={depoimentosSecao.eyebrow} title={depoimentosSecao.titulo} reveal="words" align="center" />
-        <ul className="mt-16 grid gap-6 md:grid-cols-3 md:items-start">
+        <ul className="-mx-5 mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-16 sm:px-0 md:grid md:grid-cols-3 md:items-start md:gap-6 md:overflow-visible">
           {depoimentos.map((d, i) => (
             <li
               key={i}
               data-quote
-              className={`relative overflow-hidden rounded-[30px] border border-white/12 bg-white/[0.04] p-8 backdrop-blur-sm ${i === 1 ? "md:mt-12" : ""}`}
+              className={`relative w-[62vw] max-w-[300px] shrink-0 snap-center overflow-hidden rounded-[18px] border border-white/12 bg-white/[0.04] p-4 backdrop-blur-sm md:w-auto md:max-w-none md:rounded-[30px] md:p-8 ${i === 1 ? "md:mt-12" : ""}`}
               style={{ "--c": d.cor } as CSSProperties}
             >
               <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-[var(--c)] opacity-20 blur-3xl" />
-              <svg viewBox="0 0 48 36" className="relative h-9 w-12 text-[var(--c)]" aria-hidden>
+              <svg viewBox="0 0 48 36" className="relative h-6 w-8 text-[var(--c)] md:h-9 md:w-12" aria-hidden>
                 <path
                   fill="currentColor"
                   d="M0 36V22.4C0 9.6 6.4 2.1 19.2 0l2 5.2C14 7 10.6 11 10.4 17H19v19H0zm26.8 0V22.4C26.8 9.6 33.2 2.1 46 0l2 5.2C40.8 7 37.4 11 37.2 17h8.6v19H26.8z"
                 />
               </svg>
-              <blockquote className="relative mt-6 text-lg font-medium leading-relaxed text-white/90">
-                <p className="rounded-xl border border-dashed border-white/25 p-4 text-center text-sm font-semibold tracking-wide text-[var(--lime-cta)]">
+              <blockquote className="relative mt-3 text-lg md:mt-6 font-medium leading-relaxed text-white/90">
+                <p className="rounded-xl border border-dashed border-white/25 p-3 text-center text-xs md:p-4 md:text-sm font-semibold tracking-wide text-[var(--lime-cta)]">
                   {d.texto}
                 </p>
               </blockquote>
-              <footer className="relative mt-8 flex items-center gap-3">
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-[var(--c)] text-sm font-extrabold text-[var(--ink)]" aria-hidden>
+              <footer className="relative mt-4 flex items-center gap-3 md:mt-8">
+                <span
+                  className="grid h-9 w-9 place-items-center rounded-full md:h-11 md:w-11 bg-[var(--c)] text-sm font-extrabold text-[var(--ink)]"
+                  aria-hidden
+                >
                   ✦
                 </span>
                 <span>

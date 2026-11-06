@@ -90,24 +90,24 @@ export function Frase() {
   });
 
   return (
-    <section ref={root} data-loop-zone aria-label={frase.rotulo} className="bg-glow-c relative overflow-hidden py-28 sm:py-36">
-      <p data-reveal="fade-up" className="eyebrow mb-14 flex items-center justify-center gap-2 px-5 text-center">
+    <section ref={root} data-loop-zone aria-label={frase.rotulo} className="bg-glow-c relative overflow-hidden py-16 sm:py-36">
+      <p data-reveal="fade-up" className="eyebrow mb-8 flex items-center sm:mb-14 justify-center gap-2 px-5 text-center">
         <Sparkle className="h-3 w-3" color="var(--lime-cta)" />
         {frase.rotulo}
       </p>
 
-      <div className="relative mx-auto w-[86vw] max-w-[500px]">
+      <div className="relative mx-auto w-[66vw] max-w-[500px] sm:w-[86vw]">
         {/* balões em volta (vermelho, amarelo e azul, como na foto) */}
         <div aria-hidden className="pointer-events-none absolute -left-[16%] -top-[10%] w-[24%] sm:-left-[26%]">
           <Balloon color="#E8262B" className="floaty floaty-lg w-full" style={{ "--d": "8s", "--r": "-8deg" } as CSSProperties} />
         </div>
-        <div aria-hidden className="pointer-events-none absolute -left-[4%] -top-[16%] w-[15%] sm:-left-[12%]">
+        <div aria-hidden className="pointer-events-none absolute -left-[4%] -top-[16%] hidden w-[15%] sm:-left-[12%] sm:block">
           <Balloon color="#FFC928" className="floaty w-full" style={{ "--d": "9s", "--r": "6deg", "--delay": "1s" } as CSSProperties} />
         </div>
         <div aria-hidden className="pointer-events-none absolute -bottom-[10%] -right-[14%] w-[22%] sm:-right-[24%]">
           <Balloon color="#1F4FD1" className="floaty floaty-lg w-full" style={{ "--d": "7.5s", "--r": "8deg", "--delay": "0.5s" } as CSSProperties} />
         </div>
-        <div aria-hidden className="pointer-events-none absolute -right-[4%] bottom-[2%] w-[14%] sm:-right-[11%]">
+        <div aria-hidden className="pointer-events-none absolute -right-[4%] bottom-[2%] hidden w-[14%] sm:-right-[11%] sm:block">
           <Balloon color="#E8262B" className="floaty w-full" style={{ "--d": "10s", "--r": "-5deg", "--delay": "2s" } as CSSProperties} />
         </div>
 
@@ -116,7 +116,7 @@ export function Frase() {
           <div data-tilt>
             <blockquote
               data-card
-              className="relative rounded-[6px] px-[9%] pb-[12%] pt-[13%] text-center shadow-[0_40px_80px_-25px_rgba(0,0,0,0.75),0_2px_0_rgba(255,255,255,0.6)_inset]"
+              className="relative rounded-[6px] px-[9%] pb-[12%] pt-[13%] text-center shadow-[0_24px_50px_-20px_rgba(0,0,0,0.75),0_2px_0_rgba(255,255,255,0.6)_inset] sm:shadow-[0_40px_80px_-25px_rgba(0,0,0,0.75),0_2px_0_rgba(255,255,255,0.6)_inset]"
               style={{ background: "linear-gradient(160deg, #FFFDF6 0%, #FBF5E6 100%)", color: INK }}
             >
               {/* textura sutil de papel */}
@@ -128,10 +128,10 @@ export function Frase() {
                     "radial-gradient(120% 80% at 20% 0%, transparent 60%, rgba(160,130,90,.18)), radial-gradient(90% 70% at 100% 100%, transparent 55%, rgba(160,130,90,.16))",
                 }}
               />
-              <Paw className="absolute left-[7%] top-[6%] h-9 w-9 -rotate-12 sm:h-11 sm:w-11" />
-              <Paw className="absolute bottom-[6%] right-[8%] h-9 w-9 rotate-12 sm:h-11 sm:w-11" />
+              <Paw className="absolute left-[7%] top-[6%] h-5 w-5 -rotate-12 sm:h-11 sm:w-11" />
+              <Paw className="absolute bottom-[6%] right-[8%] h-5 w-5 rotate-12 sm:h-11 sm:w-11" />
 
-              <div className="relative font-[family-name:var(--font-hand)] text-[clamp(1.55rem,5.6vw,2.35rem)] font-semibold leading-[1.08]">
+              <div className="relative font-[family-name:var(--font-hand)] text-[clamp(0.98rem,4.1vw,2.35rem)] font-semibold leading-[1.08]">
                 {frase.linhas.map((l, i) => {
                   const big = "destaque" in l && l.destaque === "grande";
                   const under = "destaque" in l && l.destaque === "sublinhado";

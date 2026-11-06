@@ -188,7 +188,7 @@ export function Lightbox({ items, index, from, getRect, labels, onClose }: Props
           style={{ left: box.left, top: box.top, width: box.w, height: box.h }}
         >
           <div ref={imgWrap} className="absolute inset-0">
-            <Image key={item.src} src={item.src} alt={item.alt} fill sizes="90vw" className="object-cover" priority />
+            <Image quality={90} key={item.src} src={item.src} alt={item.alt} fill sizes="90vw" className="object-cover" priority />
           </div>
         </div>
       )}

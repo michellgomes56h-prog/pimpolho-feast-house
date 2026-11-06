@@ -87,10 +87,10 @@ function Pill({
   return (
     <div className={`a-pop absolute z-[5] ${className}`} style={{ "--delay": `${delay}s` } as CSSProperties}>
       <div
-        className="floaty floaty-sm flex items-center border border-white/15 bg-[var(--bg-pill)]/90 gap-2.5 rounded-full py-2 pl-2 pr-4 text-[0.78rem] font-semibold text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.6)] sm:text-sm"
+        className="floaty floaty-sm flex items-center border border-white/15 bg-[var(--bg-pill)]/90 gap-2 rounded-full py-1.5 pl-1.5 pr-3 text-[0.68rem] font-semibold sm:gap-2.5 sm:py-2 sm:pl-2 sm:pr-4 text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.6)] sm:text-sm"
         style={{ "--d": `${d}s` } as CSSProperties}
       >
-        <span className="grid h-7 w-7 place-items-center rounded-full text-[var(--ink)] sm:h-8 sm:w-8" style={{ background: color }}>
+        <span className="grid h-6 w-6 place-items-center rounded-full text-[var(--ink)] sm:h-8 sm:w-8" style={{ background: color }}>
           <PillIcon kind={icon} />
         </span>
         <span className="whitespace-nowrap">{label}</span>
@@ -188,15 +188,18 @@ export function Hero() {
       />
       <Starfield stars={STARS} />
 
-      <div className="relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 pb-[150px] sm:px-8 lg:min-h-[calc(100svh-var(--header-h))] lg:grid-cols-[1.02fr_1fr] lg:gap-8 lg:px-12 lg:pb-[190px]">
+      <div className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-5 pb-[130px] sm:px-8 lg:min-h-[calc(100svh-var(--header-h))] lg:grid-cols-[1.02fr_1fr] lg:gap-8 lg:px-12 lg:pb-[190px]">
         {/* ---------- texto ---------- */}
         <div data-exit className="relative z-10 max-w-[640px] origin-top-left">
-          <p className="a-fade-up eyebrow mb-6 flex items-center gap-2 text-[0.72rem] sm:text-xs" style={{ ...d(0.1), "--from-y": "16px" } as CSSProperties}>
+          <p
+            className="a-fade-up eyebrow mb-4 flex items-center gap-2 text-[0.68rem] sm:mb-6 sm:text-xs"
+            style={{ ...d(0.1), "--from-y": "16px" } as CSSProperties}
+          >
             <Sparkle className="h-3 w-3" color="var(--lime-cta)" />
             {hero.eyebrow}
           </p>
 
-          <h1 id="hero-title" className="text-[clamp(2.9rem,7.2vw,6rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
+          <h1 id="hero-title" className="text-[clamp(2.5rem,7.2vw,6rem)] font-extrabold leading-[0.98] tracking-[-0.045em]">
             <span className="sr-only">
               {hero.tituloLinha1} {hero.tituloLinha2Antes} {site.wordmark}
               {hero.tituloLinha2Depois}
@@ -219,11 +222,11 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="a-fade-up mt-7 max-w-[34rem] text-[1.02rem] leading-relaxed text-[var(--text-muted)] sm:text-lg" style={d(0.7)}>
+          <p className="a-fade-up mt-5 max-w-[34rem] text-[0.95rem] leading-relaxed sm:mt-7 text-[var(--text-muted)] sm:text-lg" style={d(0.7)}>
             {hero.subtitulo}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-5">
+          <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4 sm:mt-9">
             <div className="a-fade-up" style={d(0.95)}>
               <CtaButton href={whatsappLink()}>{hero.ctaPrincipal}</CtaButton>
             </div>
@@ -246,7 +249,10 @@ export function Hero() {
             </a>
           </div>
 
-          <p className="a-fade-up mt-10 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.82rem] text-[var(--text-muted)]" style={d(1.15)}>
+          <p
+            className="a-fade-up mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem] sm:mt-10 sm:text-[0.82rem] text-[var(--text-muted)]"
+            style={d(1.15)}
+          >
             <Sparkle className="h-3 w-3" color="var(--pp-P)" />
             {hero.tiposEvento.map((t, i) => (
               <span key={t} className="flex items-center gap-2">
@@ -258,7 +264,7 @@ export function Hero() {
         </div>
 
         {/* ---------- composição visual ---------- */}
-        <div data-exit-visual className="relative mx-auto w-full max-w-[640px] lg:mr-0">
+        <div data-exit-visual className="relative mx-auto w-[78%] max-w-[640px] sm:w-full lg:mr-0">
           <div className="relative aspect-[1/1.02] w-full">
             <div
               aria-hidden
@@ -295,6 +301,7 @@ export function Hero() {
                       style={{ ...d(0.1 + i * 0.12), boxShadow: `0 30px 60px -20px rgba(0,0,0,.7), 0 0 50px -14px ${fr.glow}` }}
                     >
                       <Image
+                        quality={90}
                         src={f.src}
                         alt={f.alt}
                         fill

@@ -146,7 +146,7 @@ export function Assistente() {
         aria-expanded={open}
         aria-controls="assistente"
         aria-label={open ? assistente.fechar : assistente.botao}
-        className="group fixed bottom-5 right-5 z-[70] flex h-16 items-center gap-3 rounded-full bg-[linear-gradient(135deg,var(--pink-hot),var(--glow-amber))] pl-4 pr-4 text-white shadow-[0_18px_40px_-10px_rgba(255,122,61,0.65)] transition-transform duration-500 ease-[var(--ease-spring)] hover:scale-105 sm:bottom-7 sm:right-7 sm:pr-6"
+        className="group fixed bottom-4 right-4 z-[70] flex h-14 items-center gap-3 rounded-full sm:bottom-7 sm:right-7 sm:h-16 bg-[linear-gradient(135deg,var(--pink-hot),var(--glow-amber))] pl-4 pr-4 text-white shadow-[0_18px_40px_-10px_rgba(255,122,61,0.65)] transition-transform duration-500 ease-[var(--ease-spring)] hover:scale-105 sm:pr-6"
       >
         <span className="relative grid h-9 w-9 place-items-center">
           <svg

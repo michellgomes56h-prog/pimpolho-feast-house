@@ -52,8 +52,8 @@ export function CtaFinal() {
   });
 
   return (
-    <section ref={root} data-loop-zone aria-labelledby="cta-title" className="relative px-3 py-16 sm:px-6 sm:py-24">
-      <div data-box className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[40px] px-6 py-24 text-center sm:px-12 sm:py-32">
+    <section ref={root} data-loop-zone aria-labelledby="cta-title" className="relative px-3 py-10 sm:px-6 sm:py-24">
+      <div data-box className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[28px] px-5 py-14 text-center sm:rounded-[40px] sm:px-12 sm:py-32">
         {/* gradiente animado (camadas girando devagar — só transform) */}
         <div aria-hidden className="absolute inset-0 bg-[var(--bg-mid)]" />
         <div aria-hidden className="absolute -inset-1/2 [animation:orbit_28s_linear_infinite]">
@@ -84,17 +84,17 @@ export function CtaFinal() {
           <h2
             id="cta-title"
             data-reveal="chars"
-            className="mx-auto mt-6 max-w-4xl text-[clamp(2.5rem,7vw,6.2rem)] font-extrabold leading-[0.98] tracking-[-0.045em]"
+            className="mx-auto mt-4 max-w-4xl text-[clamp(1.9rem,7vw,6.2rem)] sm:mt-6 font-extrabold leading-[0.98] tracking-[-0.045em]"
           >
             {ctaFinal.titulo}
           </h2>
-          <div data-wm className="mt-6 flex justify-center">
-            <PimpolhoWordmark className="text-[clamp(3.2rem,9vw,7.5rem)]" />
+          <div data-wm className="mt-4 flex justify-center sm:mt-6">
+            <PimpolhoWordmark className="text-[clamp(2.6rem,9vw,7.5rem)]" />
           </div>
-          <p data-reveal="lines" className="mx-auto mt-8 max-w-xl text-base font-medium leading-relaxed text-white sm:text-lg">
+          <p data-reveal="lines" className="mx-auto mt-5 max-w-xl text-[0.95rem] font-medium sm:mt-8 sm:text-base leading-relaxed text-white sm:text-lg">
             {ctaFinal.texto}
           </p>
-          <div data-reveal="fade-up" className="mt-10 flex justify-center">
+          <div data-reveal="fade-up" className="mt-7 flex justify-center sm:mt-10">
             <CtaButton href={whatsappLink()}>{ctaFinal.cta}</CtaButton>
           </div>
         </div>
