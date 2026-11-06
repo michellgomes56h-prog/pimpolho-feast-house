@@ -112,7 +112,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
             rel="noopener noreferrer"
             onClick={onClick}
             aria-label={`${eventosSecao.botao}: ${evento.titulo}`}
-            className="mt-auto inline-flex w-fit items-center gap-1 pt-1.5 text-[0.66rem] font-semibold text-[var(--accent)] transition-[background-color,color,border-color] duration-300 sm:mt-6 sm:gap-2 sm:rounded-full sm:border sm:border-white/20 sm:py-2 sm:pl-4 sm:pr-2 sm:text-sm sm:text-white sm:hover:border-transparent sm:hover:bg-[var(--accent)] sm:hover:text-[var(--ink)]"
+            className="mt-auto inline-flex w-fit items-center gap-1 pt-1.5 text-[0.66rem] font-semibold text-white transition-[background-color,color,border-color] duration-300 sm:mt-6 sm:gap-2 sm:rounded-full sm:border sm:border-white/20 sm:py-2 sm:pl-4 sm:pr-2 sm:text-sm sm:text-white sm:hover:border-transparent sm:hover:bg-[var(--accent)] sm:hover:text-[var(--ink)]"
           >
             <span className="sm:hidden">{eventosSecao.botaoCurto}</span>
             <span className="hidden sm:inline">{eventosSecao.botao}</span>

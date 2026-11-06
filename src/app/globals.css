@@ -4,14 +4,14 @@
    Tokens — Pimpolho Feast House
    ========================================================= */
 :root {
-  /* Fundo em tom terroso/laranja bem discreto (pedido do cliente: nada chamativo) */
-  --bg-deep: #2b1810;
-  --bg-mid: #4a2a1a;
-  --bg-darkest: #1e110b;
-  --bg-pill: #3a2217;
+  /* Fundo laranja — opção 3 escolhida pela cliente (#D15610) */
+  --bg-deep: #d15610;
+  --bg-mid: #ee731b;
+  --bg-darkest: #a6400c;
+  --bg-pill: #b44b0e;
   --ink: #2a1205; /* texto escuro sobre o botão lime */
-  --glow-orange: #c8743f;
-  --glow-amber: #c99a5a;
+  --glow-orange: #fa9e42;
+  --glow-amber: #fbc456;
   --blue-electric: #2e46f0;
   --purple-neon: #8b3dff;
   --pink-hot: #ff3ea5;
@@ -19,7 +19,7 @@
   --lilac: #c79bff;
   --lime-cta: #d6f55b;
   --text: #ffffff;
-  --text-muted: #efd9c8;
+  --text-muted: #fff5ec; /* quase branco: leitura boa sobre o laranja */
 
   /* Letras do wordmark (cores da fachada) */
   --pp-P: #ffd21f;
@@ -31,7 +31,7 @@
   --pp-h: #ff8a1f;
   --pp-o2: #b36bff;
 
-  --grad-title: linear-gradient(90deg, var(--peach), var(--pink-hot), var(--glow-amber));
+  --grad-title: linear-gradient(90deg, #fff8d6, #ffe14d 55%, #fff3b0); /* amarelo-creme: destaca no fundo laranja */
   --grad-brand: linear-gradient(90deg, var(--pp-P), var(--pink-hot), var(--pp-p), var(--pp-o2));
   --grad-conic: conic-gradient(from var(--angle), var(--pp-P), var(--pp-i), var(--pp-m), var(--pp-p), var(--pp-o1), var(--pp-h), var(--pp-o2), var(--pp-P));
 
@@ -153,11 +153,13 @@ body {
 .pp-letter {
   display: inline-block;
   color: var(--c);
+  /* contorno escuro: as letras amarela/laranja não somem no fundo laranja */
+  -webkit-text-stroke: 0.035em #4a1a06;
+  paint-order: stroke fill;
   text-shadow:
-    0 0.035em 0 color-mix(in oklab, var(--c) 55%, var(--bg-deep)),
-    0 0.07em 0 color-mix(in oklab, var(--c) 30%, var(--bg-deep)),
-    0 0 0.28em color-mix(in oklab, var(--c) 60%, transparent);
-  -webkit-text-stroke: 0.012em color-mix(in oklab, var(--c) 70%, white);
+    0 0.05em 0 #4a1a06,
+    0 0.09em 0 color-mix(in oklab, #4a1a06 60%, transparent),
+    0 0.12em 0.2em rgb(0 0 0 / 0.25);
 }
 
 /* =========================================================
