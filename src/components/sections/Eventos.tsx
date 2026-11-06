@@ -103,7 +103,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
           >
             <EventIcon name={evento.icone} className="h-7 w-7" />
           </span>
-          <h3 className="text-[0.74rem] font-bold leading-tight tracking-[-0.01em] sm:mt-4 sm:text-[1.45rem] sm:tracking-[-0.02em]">{evento.titulo}</h3>
+          <h3 className="text-[0.85rem] font-bold leading-tight tracking-[-0.01em] sm:mt-4 sm:text-[1.45rem] sm:tracking-[-0.02em]">{evento.titulo}</h3>
           <p className="mt-2 hidden text-[0.95rem] leading-relaxed text-[var(--text-muted)] sm:block">{evento.descricao}</p>
           <a
             href={whatsappLink(msg)}
@@ -152,7 +152,7 @@ export function Eventos() {
             {eventosSecao.texto}
           </p>
         </div>
-        <ul data-grid className="mt-6 grid grid-cols-3 gap-2 sm:mt-16 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3">
+        <ul data-grid className="mt-6 grid grid-cols-2 gap-2 sm:mt-16 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-4">
           {eventos.map((e, i) => (
             <EventCard key={e.titulo} evento={e} index={i} />
           ))}

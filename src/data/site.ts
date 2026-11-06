@@ -14,7 +14,7 @@ export const site = {
   creditos: { texto: "Site por VOID DEV", url: "#" },
   seo: {
     title: "Pimpolho Feast House — Espaço para festas e eventos",
-    description: `Espaço de festas com foco no público infantil: aniversários, chá de bebê e chá revelação, além de formaturas, 15 anos e confraternizações. Até ${contato.capacidade} convidados. Peça seu orçamento pelo WhatsApp.`,
+    description: `Espaço de festas com foco no público infantil: aniversários infantis, festas personalizadas, chá de bebê e chá revelação. Até ${contato.capacidade} convidados. Peça seu orçamento pelo WhatsApp.`,
     ogImage: "/og-image.jpg",
   },
 };
@@ -42,7 +42,7 @@ export const hero = {
     "Um espaço completo para festas infantis, chá de bebê e todos os momentos que merecem ser celebrados. Você traz os convidados, a gente entrega o cenário.",
   ctaPrincipal: "Fazer orçamento",
   ctaSecundario: { label: "Conhecer o espaço", href: "#galeria" },
-  tiposEvento: ["Festas infantis", "Chá de bebê", "Formaturas", "15 anos"],
+  tiposEvento: ["Festas infantis", "Chá de bebê", "Festa personalizada"],
   /** Ordem: [grande central, superior direita, inferior esquerda, inferior direita]. `pos` = enquadramento (object-position). */
   fotos: [
     { src: "/images/hero/piscina-de-bolinhas.jpg", alt: "Criança brincando na piscina de bolinhas do Pimpolho", pos: "50% 40%" },
@@ -57,7 +57,7 @@ export const hero = {
   },
   rodape: {
     rolar: "Role para descobrir",
-    tipos: "Festas infantis • Chá de bebê • Eventos",
+    tipos: "Festas infantis • Chá de bebê • Personalizadas",
   },
 };
 

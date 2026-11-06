@@ -7,7 +7,7 @@
 export const eventosSecao = {
   eyebrow: "Eventos que recebemos",
   titulo: "Cada festa com a sua cara.",
-  texto: "Festa infantil é a nossa especialidade — e o espaço também recebe chá de bebê, formaturas e outros eventos.",
+  texto: "Festa infantil é a nossa especialidade — do primeiro aninho ao chá de bebê, tudo pensado para a criançada.",
   botao: "Quero esse evento",
   /** Versão curta do botão (celular). */
   botaoCurto: "Orçamento",
@@ -30,25 +30,11 @@ export const eventos = [
     foto: { src: "/images/eventos/cha-revelacao.jpg", alt: "Decoração de chá de bebê com ursinhos em tons de azul e bege", pos: "50% 45%" },
   },
   {
-    titulo: "Formatura",
-    descricao: "Celebre a conquista com a turma toda reunida.",
-    icone: "capelo",
-    cor: "var(--pp-p)",
-    foto: { src: "/images/eventos/formatura.jpg", alt: "[FOTO: formatura]" },
-  },
-  {
     titulo: "15 anos",
     descricao: "Uma noite especial, do jeitinho que você sonhou.",
     icone: "coroa",
     cor: "var(--pp-o2)",
     foto: { src: "/images/eventos/15-anos.jpg", alt: "[FOTO: 15 anos]" },
-  },
-  {
-    titulo: "Corporativo",
-    descricao: "Confraternizações e encontros da sua equipe.",
-    icone: "maleta",
-    cor: "var(--pp-h)",
-    foto: { src: "/images/eventos/corporativo.jpg", alt: "[FOTO: evento corporativo]" },
   },
 ] as const;
 
