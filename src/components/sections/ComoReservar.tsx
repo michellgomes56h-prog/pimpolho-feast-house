@@ -11,33 +11,37 @@ import { CtaButton } from "@/components/ui/CtaButton";
 export function ComoReservar() {
   const root = useRef<HTMLElement>(null);
 
-  useReveal(root, (q) => {
-    const list = q("[data-steps]")[0];
-    const fill = q("[data-fill]")[0];
-    const reduce = prefersReducedMotion();
-    // linha gradiente "andando"
-    gsap.fromTo(
-      fill,
-      { scaleY: reduce ? 1 : 0 },
-      { scaleY: 1, ease: "none", scrollTrigger: reduce ? undefined : { trigger: list, start: "top 60%", end: "bottom 60%", scrub: 0.6 } },
-    );
-    // cada passo acende quando a linha chega nele
-    q("[data-step]").forEach((step) => {
-      gsap.from(step.querySelector("[data-step-body]"), {
-        x: 40,
-        autoAlpha: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        scrollTrigger: { trigger: step, start: "top 80%", once: true },
+  useReveal(
+    root,
+    (q) => {
+      const list = q("[data-steps]")[0];
+      const fill = q("[data-fill]")[0];
+      const reduce = prefersReducedMotion();
+      // linha gradiente "andando"
+      gsap.fromTo(
+        fill,
+        { scaleY: reduce ? 1 : 0 },
+        { scaleY: 1, ease: "none", scrollTrigger: reduce ? undefined : { trigger: list, start: "top 60%", end: "bottom 60%", scrub: 0.6 } },
+      );
+      // cada passo acende quando a linha chega nele
+      q("[data-step]").forEach((step) => {
+        gsap.from(step.querySelector("[data-step-body]"), {
+          x: 40,
+          autoAlpha: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: step, start: "top 80%", once: true },
+        });
+        ScrollTrigger.create({
+          trigger: step,
+          start: "top 60%",
+          onEnter: () => step.classList.add("is-on"),
+          onLeaveBack: () => step.classList.remove("is-on"),
+        });
       });
-      ScrollTrigger.create({
-        trigger: step,
-        start: "top 60%",
-        onEnter: () => step.classList.add("is-on"),
-        onLeaveBack: () => step.classList.remove("is-on"),
-      });
-    });
-  });
+    },
+    { always: true },
+  );
 
   return (
     <section ref={root} aria-labelledby="reservar-title" className="bg-glow-b noise relative overflow-x-clip py-16 sm:py-36">
@@ -56,7 +60,7 @@ export function ComoReservar() {
             <span
               aria-hidden
               data-fill
-              className="absolute bottom-10 left-[35px] top-10 hidden w-[2px] origin-top sm:block rounded bg-[linear-gradient(180deg,var(--pp-P),var(--pp-m),var(--pp-p),var(--pp-o2))] shadow-[0_0_14px_var(--pink-hot)] sm:left-[35px]"
+              className="absolute bottom-10 left-[35px] top-10 hidden w-[2px] origin-top sm:block rounded bg-[linear-gradient(180deg,var(--pp-P),var(--pp-m),var(--pp-p),var(--pp-o2))]  sm:left-[35px]"
             />
             {reservar.passos.map((p, i) => (
               <li
@@ -64,7 +68,7 @@ export function ComoReservar() {
                 data-step
                 className="group relative flex flex-col gap-2 rounded-[14px] border border-white/10 bg-white/[0.03] p-3 transition-colors duration-700 [&.is-on]:bg-white/[0.06] sm:flex-row sm:gap-10 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:pb-14 sm:last:pb-0"
               >
-                <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/15 bg-[var(--bg-deep)] text-sm font-extrabold text-white/40 transition-all duration-700 ease-[var(--ease-spring)] group-[.is-on]:scale-110 group-[.is-on]:border-transparent group-[.is-on]:bg-[var(--lime-cta)] group-[.is-on]:text-[var(--ink)] group-[.is-on]:shadow-[0_0_0_8px_rgba(214,245,91,0.12),0_0_40px_var(--lime-cta)] sm:h-[72px] sm:w-[72px] sm:text-2xl">
+                <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-white/15 bg-[var(--bg-deep)] text-sm font-extrabold text-white/40 transition-all duration-700 ease-[var(--ease-spring)] group-[.is-on]:scale-110 group-[.is-on]:border-transparent group-[.is-on]:bg-[var(--lime-cta)] group-[.is-on]:text-[var(--ink)] group-[.is-on]:shadow-[0_0_0_4px_rgba(214,245,91,0.12)] sm:h-[72px] sm:w-[72px] sm:text-2xl">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div

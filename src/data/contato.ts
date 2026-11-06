@@ -10,15 +10,15 @@ export const contato = {
   whatsappExibicao: "(55) 9175-1519",
   instagram: "[INSTAGRAM]", // ex.: "pimpolhofeasthouse" (sem @)
   instagramUrl: "[INSTAGRAM_URL]",
-  endereco: "[ENDEREÇO]",
-  cidade: "[CIDADE]",
-  uf: "[UF]",
-  cep: "[CEP]",
+  endereco: "R. Porto Alegre, 725 - Fritsch",
+  cidade: "Panambi",
+  uf: "RS",
+  cep: "98280-000",
   horario: "[HORÁRIO]",
   /** Capacidade máxima do espaço (pessoas). */
   capacidade: 76,
-  latitude: "[LATITUDE]",
-  longitude: "[LONGITUDE]",
+  latitude: "-28.2674",
+  longitude: "-53.4969",
   /**
    * Centro provisório do mapa enquanto LATITUDE/LONGITUDE forem placeholders (centro do Brasil).
    * Assim que tiver as coordenadas reais, preencha latitude/longitude acima (ex.: "-23.5505").
@@ -31,9 +31,7 @@ export const contato = {
     eyebrow: "Onde estamos",
     titulo: "Vem fazer festa com a gente.",
     labels: { endereco: "Endereço", horario: "Atendimento", whatsapp: "WhatsApp", instagram: "Instagram" },
-    googleMaps: "Abrir no Google Maps",
-    waze: "Como chegar (Waze)",
     dicaZoom: "Use Ctrl + rolagem (ou clique no mapa) para dar zoom",
-    coordenadasPendentes: "Localização provisória — [LATITUDE] / [LONGITUDE] pendentes",
+    coordenadasPendentes: "Localização provisória — coordenadas pendentes",
   },
 } as const;

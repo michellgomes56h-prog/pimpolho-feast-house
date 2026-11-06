@@ -4,14 +4,14 @@
    Tokens — Pimpolho Feast House
    ========================================================= */
 :root {
-  /* Fundo em laranja queimado, escuro e suave (pedido do cliente) */
-  --bg-deep: #331509;
-  --bg-mid: #6a2a0e;
-  --bg-darkest: #220e06;
-  --bg-pill: #3d1c0d;
+  /* Fundo em tom terroso/laranja bem discreto (pedido do cliente: nada chamativo) */
+  --bg-deep: #2b1810;
+  --bg-mid: #4a2a1a;
+  --bg-darkest: #1e110b;
+  --bg-pill: #3a2217;
   --ink: #2a1205; /* texto escuro sobre o botão lime */
-  --glow-orange: #ff7a2e;
-  --glow-amber: #ffad42;
+  --glow-orange: #c8743f;
+  --glow-amber: #c99a5a;
   --blue-electric: #2e46f0;
   --purple-neon: #8b3dff;
   --pink-hot: #ff3ea5;
@@ -101,12 +101,6 @@ body {
   border-radius: 6px;
 }
 
-/* esconde o cursor nativo só quando o cursor custom está ativo */
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
-}
-
 /* =========================================================
    Utilitários de marca
    ========================================================= */
@@ -137,9 +131,9 @@ html.has-custom-cursor * {
   .section-bg {
     isolation: isolate;
     background:
-      radial-gradient(60% 55% at 92% 8%, color-mix(in oklab, var(--glow-orange) 70%, transparent), transparent 70%),
-      radial-gradient(55% 60% at 4% 92%, color-mix(in oklab, var(--pink-hot) 45%, transparent), transparent 70%),
-      radial-gradient(70% 70% at 50% 50%, var(--bg-mid), transparent 80%), var(--bg-deep);
+      radial-gradient(60% 55% at 92% 8%, color-mix(in oklab, var(--glow-orange) 30%, transparent), transparent 70%),
+      radial-gradient(55% 60% at 4% 92%, color-mix(in oklab, var(--pink-hot) 14%, transparent), transparent 70%),
+      radial-gradient(70% 70% at 50% 50%, color-mix(in oklab, var(--bg-mid) 70%, transparent), transparent 80%), var(--bg-deep);
   }
 
   .noise::after {
@@ -244,13 +238,13 @@ html.has-custom-cursor * {
   background: var(--lime-cta);
   color: var(--ink);
   box-shadow:
-    0 10px 30px -10px color-mix(in oklab, var(--lime-cta) 70%, transparent),
+    0 6px 16px -8px rgb(0 0 0 / 0.5),
     inset 0 -2px 0 rgb(0 0 0 / 0.12);
 }
 .cta--primary:hover {
   box-shadow:
-    0 14px 44px -8px color-mix(in oklab, var(--lime-cta) 85%, transparent),
-    0 0 0 6px color-mix(in oklab, var(--lime-cta) 18%, transparent);
+    0 8px 20px -8px rgb(0 0 0 / 0.55),
+    0 0 0 4px color-mix(in oklab, var(--lime-cta) 14%, transparent);
 }
 
 .cta--ghost {
@@ -279,7 +273,7 @@ html.has-custom-cursor * {
 }
 .cta--ghost:hover {
   background: rgb(255 255 255 / 0.1);
-  box-shadow: 0 0 34px -6px color-mix(in oklab, var(--pink-hot) 60%, transparent);
+  box-shadow: 0 0 18px -8px color-mix(in oklab, var(--pink-hot) 40%, transparent);
 }
 .cta--ghost .cta__shine::after {
   background: linear-gradient(100deg, transparent, rgb(255 255 255 / 0.22), transparent);
@@ -591,16 +585,16 @@ html.has-custom-cursor * {
   }
   .bg-glow-a {
     background-image:
-      radial-gradient(45% 40% at 100% 30%, color-mix(in oklab, var(--glow-orange) 42%, transparent), transparent 70%),
-      radial-gradient(45% 50% at 0% 100%, color-mix(in oklab, var(--pink-hot) 28%, transparent), transparent 70%);
+      radial-gradient(45% 40% at 100% 30%, color-mix(in oklab, var(--glow-orange) 16%, transparent), transparent 70%),
+      radial-gradient(45% 50% at 0% 100%, color-mix(in oklab, var(--pink-hot) 9%, transparent), transparent 70%);
   }
   .bg-glow-b {
     background-image:
-      radial-gradient(42% 40% at 0% 32%, color-mix(in oklab, var(--glow-amber) 38%, transparent), transparent 70%),
-      radial-gradient(50% 45% at 100% 90%, color-mix(in oklab, var(--glow-orange) 40%, transparent), transparent 70%);
+      radial-gradient(42% 40% at 0% 32%, color-mix(in oklab, var(--glow-amber) 14%, transparent), transparent 70%),
+      radial-gradient(50% 45% at 100% 90%, color-mix(in oklab, var(--glow-orange) 15%, transparent), transparent 70%);
   }
   .bg-glow-c {
-    background-image: radial-gradient(60% 50% at 50% 50%, color-mix(in oklab, var(--bg-mid) 85%, transparent), transparent 75%);
+    background-image: radial-gradient(60% 50% at 50% 50%, color-mix(in oklab, var(--bg-mid) 55%, transparent), transparent 75%);
   }
 }
 
@@ -706,6 +700,29 @@ html.has-custom-cursor * {
 [data-paused] *::before,
 [data-paused] *::after {
   animation-play-state: paused !important;
+}
+
+/* celular/tablet: sem animações decorativas em loop (balões, estrelas, ondas, brilhos) */
+@media (max-width: 1023px), (pointer: coarse) {
+  .floaty,
+  .twinkle,
+  .cta__shine::after,
+  [class*="orbit_"],
+  [class*="pulse-ring"],
+  [class*="scroll-dot"],
+  [style*="wave-slide"],
+  .pp-intro .pp-letter {
+    animation-iteration-count: 1 !important;
+  }
+  .floaty,
+  .twinkle,
+  .cta__shine::after,
+  [class*="orbit_"],
+  [class*="pulse-ring"],
+  [class*="scroll-dot"],
+  [style*="wave-slide"] {
+    animation: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -10,7 +10,7 @@ import { ConfettiBits } from "@/components/decor/ConfettiBits";
 import { Sparkle, Starfield, type Star } from "@/components/decor/Sparkle";
 import { hero, site } from "@/data/site";
 import { whatsappLink } from "@/lib/whatsapp";
-import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, useGSAP, prefersReducedMotion, isCalm } from "@/lib/gsap";
 
 /* ---------- decoração (posições em %) ---------- */
 const STARS: Star[] = [
@@ -130,7 +130,7 @@ export function Hero() {
   useGSAP(
     () => {
       const el = root.current!;
-      if (prefersReducedMotion()) return;
+      if (prefersReducedMotion() || isCalm()) return; // celular: sem parallax
       const q = gsap.utils.selector(el);
 
       const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -184,7 +184,7 @@ export function Hero() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-[var(--glow-amber)] opacity-25 blur-[140px]"
+        className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-[var(--glow-amber)] opacity-10 blur-[140px]"
       />
       <Starfield stars={STARS} />
 
@@ -268,11 +268,11 @@ export function Hero() {
           <div className="relative aspect-[1/1.02] w-full">
             <div
               aria-hidden
-              className="a-fade pointer-events-none absolute left-[10%] top-[18%] h-[70%] w-[70%] rounded-full bg-[var(--pink-hot)] opacity-35 blur-[90px]"
+              className="a-fade pointer-events-none absolute left-[10%] top-[18%] h-[70%] w-[70%] rounded-full bg-[var(--pink-hot)] opacity-15 blur-[90px]"
             />
             <div
               aria-hidden
-              className="a-fade pointer-events-none absolute right-0 top-0 h-[55%] w-[55%] rounded-full bg-[var(--glow-orange)] opacity-45 blur-[100px]"
+              className="a-fade pointer-events-none absolute right-0 top-0 h-[55%] w-[55%] rounded-full bg-[var(--glow-orange)] opacity-20 blur-[100px]"
             />
 
             {/* anel orbital */}
@@ -281,10 +281,10 @@ export function Hero() {
                 <div className="absolute inset-0 rounded-full border border-white/[0.14]" />
                 <div className="absolute inset-[9%] rounded-full border border-dashed border-white/[0.09]" />
                 <div className="absolute inset-0 [animation:orbit_26s_linear_infinite]">
-                  <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--lime-cta)] shadow-[0_0_18px_4px_var(--lime-cta)]" />
+                  <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--lime-cta)] shadow-[0_0_8px_1px_var(--lime-cta)]" />
                 </div>
                 <div className="absolute inset-[9%] [animation:orbit_40s_linear_infinite_reverse]">
-                  <span className="absolute bottom-0 left-1/2 h-2 w-2 -translate-x-1/2 translate-y-1/2 rounded-full bg-[var(--pink-hot)] shadow-[0_0_14px_3px_var(--pink-hot)]" />
+                  <span className="absolute bottom-0 left-1/2 h-2 w-2 -translate-x-1/2 translate-y-1/2 rounded-full bg-[var(--pink-hot)] shadow-[0_0_6px_1px_var(--pink-hot)]" />
                 </div>
               </div>
             </div>

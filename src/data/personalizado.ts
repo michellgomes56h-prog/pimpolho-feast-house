@@ -4,7 +4,8 @@
 export const personalizado = {
   eyebrow: "Festa personalizada",
   titulo: "Seu filho é o tema da festa.",
-  texto: "Quer a carinha do seu filho na decoração? A gente faz! Painel, topo de bolo e detalhes com a foto e o nome da criança — do jeitinho que ela imaginou.",
+  texto:
+    "Quer a carinha do seu filho na decoração? A gente faz! Painel, topo de bolo e detalhes com a foto e o nome da criança — do jeitinho que ela imaginou.",
   itens: ["Painel com foto e nome", "Tema escolhido pela criança", "Detalhes que combinam"],
   foto: {
     src: "/images/personalizado/mini-doutora-maria-helena.jpg",

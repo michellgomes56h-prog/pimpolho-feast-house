@@ -10,9 +10,7 @@ export type MapaProps = {
   lng: number;
   nome: string;
   endereco: string;
-  googleUrl: string;
-  wazeUrl: string;
-  labels: { googleMaps: string; waze: string; dicaZoom: string };
+  labels: { dicaZoom: string };
   /** Dispara o voo (flyTo) até o endereço. */
   fly: boolean;
 };
@@ -78,12 +76,13 @@ function Behaviour({ lat, lng, fly, hintRef }: { lat: number; lng: number; fly: 
   return null;
 }
 
-export default function MapaLeaflet({ lat, lng, nome, endereco, googleUrl, wazeUrl, labels, fly }: MapaProps) {
+export default function MapaLeaflet({ lat, lng, nome, endereco, labels, fly }: MapaProps) {
   const hint = useRef<HTMLDivElement>(null);
   const markerRef = useRef<L.Marker>(null);
 
   useEffect(() => {
-    if (!fly) return;
+    // no celular o balão não abre sozinho (tamparia o mapa); toque no pino para ver
+    if (!fly || window.innerWidth < 1024) return;
     const t = setTimeout(() => markerRef.current?.openPopup(), 3400);
     return () => clearTimeout(t);
   }, [fly]);
@@ -108,27 +107,9 @@ export default function MapaLeaflet({ lat, lng, nome, endereco, googleUrl, wazeU
         />
         <Marker position={[lat, lng]} icon={pin} ref={markerRef} title={nome}>
           <Popup className="pp-popup" closeButton>
-            <div className="min-w-[220px]">
-              <p className="font-display text-xl font-extrabold text-[var(--pp-m)]">{nome}</p>
-              <p className="mt-1 text-sm text-[var(--text-muted)]">{endereco}</p>
-              <div className="mt-3 flex flex-col gap-2">
-                <a
-                  href={googleUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-[var(--lime-cta)] px-4 py-2 text-center text-sm font-bold !text-[var(--ink)]"
-                >
-                  {labels.googleMaps} ↗
-                </a>
-                <a
-                  href={wazeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-white/25 px-4 py-2 text-center text-sm font-bold !text-white"
-                >
-                  {labels.waze} ↗
-                </a>
-              </div>
+            <div className="min-w-[180px] max-w-[240px]">
+              <p className="font-display text-base font-extrabold text-[var(--pp-m)]">{nome}</p>
+              <p className="mt-1 !mb-0 text-xs leading-snug text-[var(--text-muted)]">{endereco}</p>
             </div>
           </Popup>
         </Marker>

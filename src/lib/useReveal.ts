@@ -1,7 +1,7 @@
 "use client";
 
 import type { RefObject } from "react";
-import { gsap, ScrollTrigger, SplitText, useGSAP, prefersReducedMotion } from "./gsap";
+import { gsap, ScrollTrigger, SplitText, useGSAP, prefersReducedMotion, isCalm } from "./gsap";
 
 /**
  * Animações de entrada por atributo, dentro de uma seção:
@@ -38,7 +38,8 @@ function fixGradient(root: HTMLElement) {
   });
 }
 
-export function useReveal(scope: RefObject<HTMLElement | null>, extra?: (q: (s: string) => HTMLElement[]) => void) {
+/** opts.always: roda o `extra` também no celular (lógica necessária: carrossel, contadores, confete). */
+export function useReveal(scope: RefObject<HTMLElement | null>, extra?: (q: (s: string) => HTMLElement[]) => void, opts: { always?: boolean } = {}) {
   useGSAP(
     (_ctx, contextSafe) => {
       const el = scope.current;
@@ -64,6 +65,14 @@ export function useReveal(scope: RefObject<HTMLElement | null>, extra?: (q: (s: 
         if (reduce) {
           q("[data-reveal]").forEach((n) => gsap.from(n, { autoAlpha: 0, duration: 0.6, scrollTrigger: st(n, "top 95%") }));
           extra?.(q);
+          return;
+        }
+
+        // celular: só um fade suave, sem letras voando nem efeitos extras
+        if (isCalm()) {
+          q("[data-reveal]").forEach((n) => gsap.from(n, { y: 16, autoAlpha: 0, duration: 0.6, ease: "power2.out", scrollTrigger: st(n, "top 92%") }));
+          if (opts.always) extra?.(q);
+          ScrollTrigger.refresh();
           return;
         }
 

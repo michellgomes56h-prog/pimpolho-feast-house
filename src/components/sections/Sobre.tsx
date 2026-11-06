@@ -4,14 +4,14 @@ import Image from "next/image";
 import { useRef } from "react";
 import { sobre } from "@/data/site";
 import { useReveal } from "@/lib/useReveal";
-import { gsap } from "@/lib/gsap";
+import { gsap, isCalm } from "@/lib/gsap";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Sparkle } from "@/components/decor/Sparkle";
 
 function RotatingBadge({ text }: { text: string }) {
   const label = `${text} ✦ ${text} ✦ `;
   return (
-    <div className="relative grid h-24 w-24 place-items-center rounded-full bg-[var(--lime-cta)] text-[var(--ink)] shadow-[0_20px_50px_-15px_var(--lime-cta)] sm:h-36 sm:w-36">
+    <div className="relative grid h-24 w-24 place-items-center rounded-full bg-[var(--lime-cta)] text-[var(--ink)] shadow-[0_12px_24px_-12px_rgba(0,0,0,0.6)] sm:h-36 sm:w-36">
       <div aria-hidden className="absolute inset-0 [animation:orbit_18s_linear_infinite]">
         <svg viewBox="0 0 200 200" className="h-full w-full">
           <defs>
@@ -30,40 +30,45 @@ function RotatingBadge({ text }: { text: string }) {
 export function Sobre() {
   const root = useRef<HTMLElement>(null);
 
-  useReveal(root, (q) => {
-    // contadores
-    q("[data-count]").forEach((n) => {
-      const valor = Number(n.dataset.count);
-      const obj = { v: 0 };
-      gsap.to(obj, {
-        v: valor,
-        duration: 2,
-        ease: "power2.out",
-        scrollTrigger: { trigger: n, start: "top 88%", once: true },
-        onUpdate: () => (n.textContent = Math.round(obj.v).toLocaleString("pt-BR")),
+  useReveal(
+    root,
+    (q) => {
+      // contadores
+      q("[data-count]").forEach((n) => {
+        const valor = Number(n.dataset.count);
+        const obj = { v: 0 };
+        gsap.to(obj, {
+          v: valor,
+          duration: 2,
+          ease: "power2.out",
+          scrollTrigger: { trigger: n, start: "top 88%", once: true },
+          onUpdate: () => (n.textContent = Math.round(obj.v).toLocaleString("pt-BR")),
+        });
       });
-    });
-    q("[data-stat]").forEach((n, i) =>
-      gsap.from(n, { y: 40, autoAlpha: 0, duration: 0.9, delay: i * 0.08, ease: "power3.out", scrollTrigger: { trigger: n, start: "top 90%", once: true } }),
-    );
-    // arco: revela de baixo para cima + parallax da foto
-    const arch = q("[data-arch]")[0];
-    if (arch) {
-      const img = arch.querySelector("img");
-      gsap
-        .timeline({ scrollTrigger: { trigger: arch, start: "top 80%", once: true } })
-        .fromTo(arch, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut" })
-        .from(img, { scale: 1.4, duration: 2, ease: "expo.out" }, 0.3);
-      gsap.to(img, { yPercent: 8, ease: "none", scrollTrigger: { trigger: arch, start: "top bottom", end: "bottom top", scrub: true } });
-    }
-    gsap.from(q("[data-badge]"), {
-      scale: 0,
-      rotate: -120,
-      duration: 1.2,
-      ease: "back.out(1.8)",
-      scrollTrigger: { trigger: q("[data-badge]")[0], start: "top 90%", once: true },
-    });
-  });
+      q("[data-stat]").forEach((n, i) =>
+        gsap.from(n, { y: 40, autoAlpha: 0, duration: 0.9, delay: i * 0.08, ease: "power3.out", scrollTrigger: { trigger: n, start: "top 90%", once: true } }),
+      );
+      if (isCalm()) return; // celular: só os contadores
+      // arco: revela de baixo para cima + parallax da foto
+      const arch = q("[data-arch]")[0];
+      if (arch) {
+        const img = arch.querySelector("img");
+        gsap
+          .timeline({ scrollTrigger: { trigger: arch, start: "top 80%", once: true } })
+          .fromTo(arch, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut" })
+          .from(img, { scale: 1.4, duration: 2, ease: "expo.out" }, 0.3);
+        gsap.to(img, { yPercent: 8, ease: "none", scrollTrigger: { trigger: arch, start: "top bottom", end: "bottom top", scrub: true } });
+      }
+      gsap.from(q("[data-badge]"), {
+        scale: 0,
+        rotate: -120,
+        duration: 1.2,
+        ease: "back.out(1.8)",
+        scrollTrigger: { trigger: q("[data-badge]")[0], start: "top 90%", once: true },
+      });
+    },
+    { always: true },
+  );
 
   return (
     <section ref={root} data-loop-zone id="o-espaco" aria-labelledby="sobre-title" className="bg-glow-a relative overflow-hidden py-16 sm:py-36">
@@ -103,7 +108,7 @@ export function Sobre() {
         </div>
 
         <div className="relative mx-auto w-[72%] max-w-[520px] sm:w-full">
-          <div aria-hidden className="absolute -inset-10 rounded-full bg-[var(--pink-hot)] opacity-25 blur-[100px]" />
+          <div aria-hidden className="absolute -inset-10 rounded-full bg-[var(--pink-hot)] opacity-10 blur-[100px]" />
           <div
             data-arch
             data-cursor="hover"

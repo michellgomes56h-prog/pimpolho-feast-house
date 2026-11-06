@@ -26,7 +26,7 @@ export function Footer() {
     <footer data-loop-zone className="relative overflow-hidden border-t border-white/10 bg-[var(--bg-darkest)] pt-12 sm:pt-20">
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[var(--glow-amber)] opacity-25 blur-[120px]"
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[var(--glow-amber)] opacity-10 blur-[120px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 gap-x-5 gap-y-8 text-sm sm:gap-12 sm:text-base lg:grid-cols-[1.4fr_1fr_1fr_1fr]">

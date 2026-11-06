@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useRef, type CSSProperties } from "react";
-import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, useGSAP, prefersReducedMotion, isCalm } from "@/lib/gsap";
 
 /**
  * Transição ondulada entre seções: a seção de baixo "sobe" na de cima com uma borda líquida,
@@ -54,7 +54,7 @@ export function WaveDivider({ fill = "var(--bg-deep)", tint = "var(--pink-hot)",
   // a onda "respira" com a rolagem: entra mais alta e assenta ao chegar no meio da tela
   useGSAP(
     () => {
-      if (prefersReducedMotion()) return;
+      if (prefersReducedMotion() || isCalm()) return;
       const el = root.current!;
       gsap.fromTo(
         el.querySelectorAll("[data-wave-scale]"),
@@ -81,7 +81,7 @@ export function WaveDivider({ fill = "var(--bg-deep)", tint = "var(--pink-hot)",
       <div data-wave-scale className={waveBox}>
         <div className="absolute inset-y-0 left-0 w-[2880px] will-change-transform" style={anim(size === "lg" ? 34 : 40, !reverse)}>
           <svg viewBox={`0 0 ${TILE * 2} ${VB_H}`} preserveAspectRatio="none" className="h-full w-full">
-            <path d={back.d} fill={tint} opacity="0.32" />
+            <path d={back.d} fill={tint} opacity="0.18" />
           </svg>
         </div>
       </div>
@@ -102,7 +102,7 @@ export function WaveDivider({ fill = "var(--bg-deep)", tint = "var(--pink-hot)",
               </filter>
             </defs>
             <path d={front.d} fill={fill} />
-            <path d={front.line} fill="none" stroke={`url(#crest-${uid})`} strokeWidth="10" opacity="0.55" filter={`url(#glow-${uid})`} />
+            <path d={front.line} fill="none" stroke={`url(#crest-${uid})`} strokeWidth="8" opacity="0.25" filter={`url(#glow-${uid})`} />
             <path d={front.line} fill="none" stroke={`url(#crest-${uid})`} strokeWidth="3" vectorEffect="non-scaling-stroke" />
           </svg>
         </div>

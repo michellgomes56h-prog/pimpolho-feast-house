@@ -6,7 +6,6 @@ import { contato } from "@/data/contato";
 import { whatsappLink } from "@/lib/whatsapp";
 import { useReveal } from "@/lib/useReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CtaButton } from "@/components/ui/CtaButton";
 
 const MapaLeaflet = dynamic(() => import("@/components/ui/MapaLeaflet"), {
   ssr: false,
@@ -56,12 +55,8 @@ export function OndeEstamos() {
   const provisorio = lat === null || lng === null;
   const pos = provisorio ? contato.mapaProvisorio : { lat: lat!, lng: lng! };
   const enderecoCompleto = `${contato.endereco}, ${contato.cidade} - ${contato.uf}`;
-  const googleUrl = provisorio
-    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(enderecoCompleto)}`
-    : `https://www.google.com/maps/search/?api=1&query=${pos.lat},${pos.lng}`;
-  const wazeUrl = provisorio
-    ? `https://waze.com/ul?q=${encodeURIComponent(enderecoCompleto)}&navigate=yes`
-    : `https://waze.com/ul?ll=${pos.lat},${pos.lng}&navigate=yes`;
+  // o link usa o endereço completo (com número), mais preciso que o ponto do mapa
+  const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${enderecoCompleto}, ${contato.cep}`)}`;
   const s = contato.secao;
 
   return (
@@ -74,18 +69,7 @@ export function OndeEstamos() {
             data-reveal="clip"
             className="relative h-[280px] overflow-hidden rounded-[22px] sm:rounded-[30px] border border-white/12 shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)] sm:h-[520px]"
           >
-            {load && (
-              <MapaLeaflet
-                lat={pos.lat}
-                lng={pos.lng}
-                nome={contato.nome}
-                endereco={enderecoCompleto}
-                googleUrl={googleUrl}
-                wazeUrl={wazeUrl}
-                labels={s}
-                fly={fly}
-              />
-            )}
+            {load && <MapaLeaflet lat={pos.lat} lng={pos.lng} nome={contato.nome} endereco={enderecoCompleto} labels={s} fly={fly} />}
             {provisorio && (
               <p className="pointer-events-none absolute right-4 top-4 z-[600] max-w-[calc(100%-5rem)] rounded-full border border-dashed border-[var(--lime-cta)]/70 bg-[var(--bg-deep)]/85 px-3 py-1.5 text-[0.7rem] font-bold text-[var(--lime-cta)] backdrop-blur">
                 {s.coordenadasPendentes}
@@ -107,7 +91,9 @@ export function OndeEstamos() {
                   </svg>
                 }
               >
-                {contato.endereco}
+                <a href={googleUrl} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                  {contato.endereco}
+                </a>
                 <br />
                 <span className="text-[var(--text-muted)]">
                   {contato.cidade} - {contato.uf} · {contato.cep}
@@ -151,14 +137,6 @@ export function OndeEstamos() {
                   @{contato.instagram}
                 </a>
               </Info>
-            </div>
-            <div className="mt-auto flex flex-wrap gap-2 pt-4 sm:gap-3 sm:pt-6">
-              <CtaButton href={googleUrl} size="sm" variant="ghost" noConfetti>
-                {s.googleMaps}
-              </CtaButton>
-              <CtaButton href={wazeUrl} size="sm" variant="ghost" noConfetti>
-                {s.waze}
-              </CtaButton>
             </div>
           </div>
         </div>

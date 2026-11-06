@@ -7,7 +7,6 @@ import { Personalizado } from "@/components/sections/Personalizado";
 import { Galeria } from "@/components/sections/Galeria";
 import { Estrutura } from "@/components/sections/Estrutura";
 import { ComoReservar } from "@/components/sections/ComoReservar";
-import { Depoimentos } from "@/components/sections/Depoimentos";
 import { OndeEstamos } from "@/components/sections/OndeEstamos";
 import { Faq } from "@/components/sections/Faq";
 import { CtaFinal } from "@/components/sections/CtaFinal";
@@ -35,8 +34,6 @@ export default function Home() {
         <WaveDivider tint="var(--glow-amber)" seed={5} />
         <ComoReservar />
         <WaveDivider tint="var(--glow-orange)" seed={6} reverse />
-        <Depoimentos />
-        <WaveDivider tint="var(--pink-hot)" seed={7} />
         <OndeEstamos />
         <WaveDivider tint="var(--glow-amber)" seed={8} reverse />
         <Faq />

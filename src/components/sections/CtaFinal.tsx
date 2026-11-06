@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { ctaFinal } from "@/data/site";
 import { whatsappLink } from "@/lib/whatsapp";
 import { useReveal } from "@/lib/useReveal";
-import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, ScrollTrigger, prefersReducedMotion, isCalm } from "@/lib/gsap";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { PimpolhoWordmark } from "@/components/brand/PimpolhoWordmark";
 import { ConfettiBits } from "@/components/decor/ConfettiBits";
@@ -26,30 +26,36 @@ const BITS = [
 export function CtaFinal() {
   const root = useRef<HTMLElement>(null);
 
-  useReveal(root, (q) => {
-    const box = q("[data-box]")[0];
-    if (prefersReducedMotion()) return;
-    gsap.fromTo(box, { scale: 0.88 }, { scale: 1, ease: "none", scrollTrigger: { trigger: box, start: "top bottom", end: "top 35%", scrub: true } });
-    gsap.from(q("[data-wm]"), {
-      scale: 0.4,
-      autoAlpha: 0,
-      rotate: -8,
-      duration: 1.2,
-      ease: "elastic.out(1, 0.5)",
-      scrollTrigger: { trigger: box, start: "top 55%", once: true },
-    });
-    // uma explosão de confete quando o bloco chega na tela
-    ScrollTrigger.create({
-      trigger: box,
-      start: "top 45%",
-      once: true,
-      onEnter: () => {
-        const r = box.getBoundingClientRect();
-        burstConfetti(r.left + r.width * 0.25, r.top + r.height * 0.35, 40);
-        setTimeout(() => burstConfetti(r.left + r.width * 0.75, r.top + r.height * 0.35, 40), 220);
-      },
-    });
-  });
+  useReveal(
+    root,
+    (q) => {
+      const box = q("[data-box]")[0];
+      if (prefersReducedMotion()) return;
+      if (!isCalm()) {
+        gsap.fromTo(box, { scale: 0.88 }, { scale: 1, ease: "none", scrollTrigger: { trigger: box, start: "top bottom", end: "top 35%", scrub: true } });
+        gsap.from(q("[data-wm]"), {
+          scale: 0.4,
+          autoAlpha: 0,
+          rotate: -8,
+          duration: 1.2,
+          ease: "elastic.out(1, 0.5)",
+          scrollTrigger: { trigger: box, start: "top 55%", once: true },
+        });
+        // uma explosão de confete quando o bloco chega na tela
+      }
+      ScrollTrigger.create({
+        trigger: box,
+        start: "top 45%",
+        once: true,
+        onEnter: () => {
+          const r = box.getBoundingClientRect();
+          burstConfetti(r.left + r.width * 0.25, r.top + r.height * 0.35, 40);
+          setTimeout(() => burstConfetti(r.left + r.width * 0.75, r.top + r.height * 0.35, 40), 220);
+        },
+      });
+    },
+    { always: true },
+  );
 
   return (
     <section ref={root} data-loop-zone aria-labelledby="cta-title" className="relative px-3 py-10 sm:px-6 sm:py-24">
@@ -57,11 +63,11 @@ export function CtaFinal() {
         {/* gradiente animado (camadas girando devagar — só transform) */}
         <div aria-hidden className="absolute inset-0 bg-[var(--bg-mid)]" />
         <div aria-hidden className="absolute -inset-1/2 [animation:orbit_28s_linear_infinite]">
-          <div className="absolute left-[18%] top-[22%] h-[45%] w-[45%] rounded-full bg-[var(--pink-hot)] opacity-70 blur-[110px]" />
-          <div className="absolute bottom-[20%] right-[18%] h-[45%] w-[45%] rounded-full bg-[var(--glow-orange)] opacity-80 blur-[110px]" />
+          <div className="absolute left-[18%] top-[22%] h-[45%] w-[45%] rounded-full bg-[var(--pink-hot)] opacity-35 blur-[110px]" />
+          <div className="absolute bottom-[20%] right-[18%] h-[45%] w-[45%] rounded-full bg-[var(--glow-orange)] opacity-45 blur-[110px]" />
         </div>
         <div aria-hidden className="absolute -inset-1/2 [animation:orbit_40s_linear_infinite_reverse]">
-          <div className="absolute right-[25%] top-[25%] h-[35%] w-[35%] rounded-full bg-[var(--glow-amber)] opacity-70 blur-[100px]" />
+          <div className="absolute right-[25%] top-[25%] h-[35%] w-[35%] rounded-full bg-[var(--glow-amber)] opacity-35 blur-[100px]" />
           <div className="absolute bottom-[28%] left-[28%] h-[25%] w-[25%] rounded-full bg-[var(--peach)] opacity-40 blur-[90px]" />
         </div>
         <div aria-hidden className="noise absolute inset-0" />

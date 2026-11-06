@@ -57,7 +57,7 @@ export const hero = {
   },
   rodape: {
     rolar: "Role para descobrir",
-    tipos: "Festas infantis • Chá de bebê • Personalizadas",
+    tipos: "Festas infantis • Chá de bebê",
   },
 };
 

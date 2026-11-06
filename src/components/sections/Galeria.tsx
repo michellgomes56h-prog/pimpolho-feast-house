@@ -37,95 +37,99 @@ export function Galeria() {
     el.textContent = pad(i + 1);
   }, []);
 
-  useReveal(root, (q) => {
-    const section = root.current!;
-    const track = q("[data-track]")[0];
-    const items = q("[data-item]");
-    const mm = gsap.matchMedia();
+  useReveal(
+    root,
+    (q) => {
+      const section = root.current!;
+      const track = q("[data-track]")[0];
+      const items = q("[data-item]");
+      const mm = gsap.matchMedia();
 
-    /* ---------- desktop: seção pinada, rolagem vertical → horizontal ---------- */
-    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-      const distance = () => track.scrollWidth - window.innerWidth;
-      const h = gsap.to(track, {
-        x: () => -distance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: q("[data-pin]")[0],
-          pin: true,
-          scrub: 0.8,
-          start: "top top",
-          end: () => `+=${distance()}`,
-          invalidateOnRefresh: true,
-        },
-        // contador segue a posição real do trilho (já suavizada pelo scrub): 01 no início, 08 no fim
-        onUpdate() {
-          setCounter(Math.round(this.progress() * (total - 1)));
-        },
-      });
-
-      items.forEach((it, i) => {
-        const frame = it.querySelector<HTMLElement>("[data-frame]")!;
-        const img = it.querySelector<HTMLElement>("[data-parallax]")!;
-        const caption = it.querySelector<HTMLElement>("[data-caption]")!;
-        const initiallyVisible = it.offsetLeft < window.innerWidth;
-        // entrada: clip-path abrindo
-        const reveal = gsap.timeline(
-          initiallyVisible
-            ? { scrollTrigger: { trigger: section, start: "top 65%", once: true }, delay: i * 0.12 }
-            : { scrollTrigger: { trigger: it, containerAnimation: h, start: "left 92%", once: true } },
-        );
-        reveal
-          .fromTo(frame, { clipPath: "inset(12% 100% 12% 0% round 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 28px)", duration: 1.3, ease: "expo.out" })
-          .from(img, { scale: 1.3, duration: 1.6, ease: "expo.out" }, 0)
-          .from(caption, { y: 20, autoAlpha: 0, duration: 0.7, ease: "power3.out" }, 0.4);
-        // parallax interno (a foto anda dentro da moldura)
-        gsap.fromTo(
-          img,
-          { xPercent: -7 },
-          { xPercent: 7, ease: "none", scrollTrigger: { trigger: it, containerAnimation: h, start: "left right", end: "right left", scrub: true } },
-        );
-      });
-
-      // contador grande desliza junto
-      gsap.to(q("[data-progress]"), {
-        scaleX: 1,
-        ease: "none",
-        scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: () => `+=${distance()}`, scrub: true, invalidateOnRefresh: true },
-      });
-    });
-
-    /* ---------- mobile/tablet: carrossel com snap ---------- */
-    mm.add("(max-width: 1023px), (prefers-reduced-motion: reduce)", () => {
-      const scroller = q("[data-scroller]")[0];
-      const onScroll = () => {
-        const mid = scroller.scrollLeft + scroller.clientWidth / 2;
-        let best = 0;
-        let bestD = Infinity;
-        items.forEach((it, i) => {
-          const dd = Math.abs(it.offsetLeft + it.offsetWidth / 2 - mid);
-          if (dd < bestD) {
-            bestD = dd;
-            best = i;
-          }
+      /* ---------- desktop: seção pinada, rolagem vertical → horizontal ---------- */
+      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+        const distance = () => track.scrollWidth - window.innerWidth;
+        const h = gsap.to(track, {
+          x: () => -distance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: q("[data-pin]")[0],
+            pin: true,
+            scrub: 0.8,
+            start: "top top",
+            end: () => `+=${distance()}`,
+            invalidateOnRefresh: true,
+          },
+          // contador segue a posição real do trilho (já suavizada pelo scrub): 01 no início, 08 no fim
+          onUpdate() {
+            setCounter(Math.round(this.progress() * (total - 1)));
+          },
         });
-        setCounter(best);
-        const prog = scroller.scrollLeft / Math.max(1, scroller.scrollWidth - scroller.clientWidth);
-        gsap.set(q("[data-progress]"), { scaleX: prog });
-      };
-      scroller.addEventListener("scroll", onScroll, { passive: true });
-      gsap.from(items, {
-        x: 80,
-        autoAlpha: 0,
-        duration: 1,
-        ease: "power3.out",
-        stagger: 0.1,
-        scrollTrigger: { trigger: scroller, start: "top 85%", once: true },
-      });
-      return () => scroller.removeEventListener("scroll", onScroll);
-    });
 
-    ScrollTrigger.refresh();
-  });
+        items.forEach((it, i) => {
+          const frame = it.querySelector<HTMLElement>("[data-frame]")!;
+          const img = it.querySelector<HTMLElement>("[data-parallax]")!;
+          const caption = it.querySelector<HTMLElement>("[data-caption]")!;
+          const initiallyVisible = it.offsetLeft < window.innerWidth;
+          // entrada: clip-path abrindo
+          const reveal = gsap.timeline(
+            initiallyVisible
+              ? { scrollTrigger: { trigger: section, start: "top 65%", once: true }, delay: i * 0.12 }
+              : { scrollTrigger: { trigger: it, containerAnimation: h, start: "left 92%", once: true } },
+          );
+          reveal
+            .fromTo(frame, { clipPath: "inset(12% 100% 12% 0% round 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 28px)", duration: 1.3, ease: "expo.out" })
+            .from(img, { scale: 1.3, duration: 1.6, ease: "expo.out" }, 0)
+            .from(caption, { y: 20, autoAlpha: 0, duration: 0.7, ease: "power3.out" }, 0.4);
+          // parallax interno (a foto anda dentro da moldura)
+          gsap.fromTo(
+            img,
+            { xPercent: -7 },
+            { xPercent: 7, ease: "none", scrollTrigger: { trigger: it, containerAnimation: h, start: "left right", end: "right left", scrub: true } },
+          );
+        });
+
+        // contador grande desliza junto
+        gsap.to(q("[data-progress]"), {
+          scaleX: 1,
+          ease: "none",
+          scrollTrigger: { trigger: q("[data-pin]")[0], start: "top top", end: () => `+=${distance()}`, scrub: true, invalidateOnRefresh: true },
+        });
+      });
+
+      /* ---------- mobile/tablet: carrossel com snap ---------- */
+      mm.add("(max-width: 1023px), (prefers-reduced-motion: reduce)", () => {
+        const scroller = q("[data-scroller]")[0];
+        const onScroll = () => {
+          const mid = scroller.scrollLeft + scroller.clientWidth / 2;
+          let best = 0;
+          let bestD = Infinity;
+          items.forEach((it, i) => {
+            const dd = Math.abs(it.offsetLeft + it.offsetWidth / 2 - mid);
+            if (dd < bestD) {
+              bestD = dd;
+              best = i;
+            }
+          });
+          setCounter(best);
+          const prog = scroller.scrollLeft / Math.max(1, scroller.scrollWidth - scroller.clientWidth);
+          gsap.set(q("[data-progress]"), { scaleX: prog });
+        };
+        scroller.addEventListener("scroll", onScroll, { passive: true });
+        gsap.from(items, {
+          x: 80,
+          autoAlpha: 0,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: scroller, start: "top 85%", once: true },
+        });
+        return () => scroller.removeEventListener("scroll", onScroll);
+      });
+
+      ScrollTrigger.refresh();
+    },
+    { always: true },
+  );
 
   const openAt = (i: number, el: HTMLElement) => setOpen({ index: i, from: el.getBoundingClientRect() });
 

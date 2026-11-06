@@ -18,7 +18,6 @@ npm run build && npm start   # produção
 | `src/data/galeria.ts` | fotos e legendas da galeria |
 | `src/data/estrutura.ts` | comodidades (`confirmado: true` remove o selo [CONFIRMAR]) |
 | `src/data/reservar.ts` | passos "Como reservar" |
-| `src/data/depoimentos.ts` | depoimentos **reais** |
 | `src/data/faq.ts` | perguntas frequentes |
 | `src/data/assistente.ts` | assistente "Tire suas dúvidas" (respostas, palavras-chave, fluxo de orçamento) |
 | `src/app/globals.css` | cores (`--bg-deep`, `--pp-P`… cores das letras do wordmark) |
