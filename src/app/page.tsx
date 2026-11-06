@@ -1,7 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Marquee } from "@/components/sections/Marquee";
 import { Sobre } from "@/components/sections/Sobre";
 import { Eventos } from "@/components/sections/Eventos";
 import { Galeria } from "@/components/sections/Galeria";
@@ -12,6 +11,7 @@ import { OndeEstamos } from "@/components/sections/OndeEstamos";
 import { Faq } from "@/components/sections/Faq";
 import { CtaFinal } from "@/components/sections/CtaFinal";
 import { LazyExtras } from "@/components/providers/LazyExtras";
+import { WaveDivider } from "@/components/decor/WaveDivider";
 
 export default function Home() {
   return (
@@ -19,17 +19,27 @@ export default function Home() {
       <Header />
       <main id="conteudo">
         <Hero />
-        <Marquee />
+        {/* ondas: a seção de baixo "entra" na de cima */}
+        <WaveDivider size="lg" tint="var(--pink-hot)" seed={1} />
         <Sobre />
+        <WaveDivider tint="var(--purple-neon)" seed={2} reverse />
         <Eventos />
+        <WaveDivider tint="var(--blue-electric)" seed={3} />
         <Galeria />
+        <WaveDivider tint="var(--pink-hot)" seed={4} reverse />
         <Estrutura />
+        <WaveDivider tint="var(--purple-neon)" seed={5} />
         <ComoReservar />
+        <WaveDivider tint="var(--blue-electric)" seed={6} reverse />
         <Depoimentos />
+        <WaveDivider tint="var(--pink-hot)" seed={7} />
         <OndeEstamos />
+        <WaveDivider tint="var(--purple-neon)" seed={8} reverse />
         <Faq />
+        <WaveDivider tint="var(--blue-electric)" seed={9} />
         <CtaFinal />
       </main>
+      <WaveDivider fill="#0c0629" tint="var(--purple-neon)" seed={10} reverse />
       <Footer />
       <LazyExtras />
     </>

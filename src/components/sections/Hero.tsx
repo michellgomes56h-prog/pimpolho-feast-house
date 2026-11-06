@@ -188,7 +188,7 @@ export function Hero() {
       />
       <Starfield stars={STARS} />
 
-      <div className="relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 pb-28 sm:px-8 lg:min-h-[calc(100svh-var(--header-h))] lg:grid-cols-[1.02fr_1fr] lg:gap-8 lg:px-12 lg:pb-24">
+      <div className="relative mx-auto grid max-w-[1440px] items-center gap-12 px-5 pb-[150px] sm:px-8 lg:min-h-[calc(100svh-var(--header-h))] lg:grid-cols-[1.02fr_1fr] lg:gap-8 lg:px-12 lg:pb-[190px]">
         {/* ---------- texto ---------- */}
         <div data-exit className="relative z-10 max-w-[640px] origin-top-left">
           <p className="a-fade-up eyebrow mb-6 flex items-center gap-2 text-[0.72rem] sm:text-xs" style={{ ...d(0.1), "--from-y": "16px" } as CSSProperties}>
@@ -358,7 +358,7 @@ export function Hero() {
       </div>
 
       {/* rodapé do hero */}
-      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-[1440px] items-center justify-between px-5 pb-7 sm:px-8 lg:px-12">
+      <div className="absolute inset-x-0 bottom-[104px] z-10 mx-auto flex max-w-[1440px] items-center justify-between px-5 sm:bottom-[136px] sm:px-8 lg:bottom-[168px] lg:px-12">
         <div className="a-fade-up eyebrow flex items-center gap-3 text-[0.68rem]" style={d(1.3)}>
           <span aria-hidden className="relative grid h-9 w-6 place-items-start justify-center rounded-full border border-white/40 pt-2">
             <span className="block h-1.5 w-1.5 rounded-full bg-white [animation:scroll-dot_1.8s_var(--ease-out)_infinite]" />

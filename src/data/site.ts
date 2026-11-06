@@ -60,12 +60,6 @@ export const hero = {
   },
 };
 
-export const marquee = {
-  itens: ["Aniversários", "Formaturas", "15 anos", "Chá revelação", "Confraternizações", "Casamentos"],
-  /** Segunda faixa (cruzada, mais fina). */
-  itens2: ["Festa de verdade", "Você traz os convidados", "A gente entrega o cenário", "Momentos para sempre"],
-};
-
 export const sobre = {
   eyebrow: "O espaço",
   titulo: "Um lugar pensado para celebrar.",

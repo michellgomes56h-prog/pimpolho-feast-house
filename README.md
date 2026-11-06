@@ -13,7 +13,7 @@ npm run build && npm start   # produção
 | Arquivo | Conteúdo |
 |---|---|
 | `src/data/contato.ts` | WhatsApp, Instagram, endereço, horário, **latitude/longitude** |
-| `src/data/site.ts` | menu, hero (fotos), faixa de eventos, "O espaço" (números), CTA final, footer, SEO |
+| `src/data/site.ts` | menu, hero (fotos), "O espaço" (números), CTA final, footer, SEO |
 | `src/data/eventos.ts` | cards de eventos |
 | `src/data/galeria.ts` | fotos e legendas da galeria |
 | `src/data/estrutura.ts` | comodidades (`confirmado: true` remove o selo [CONFIRMAR]) |

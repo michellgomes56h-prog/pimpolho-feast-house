@@ -137,7 +137,7 @@ export function Galeria() {
   }, []);
 
   return (
-    <section ref={root} id="galeria" aria-labelledby="galeria-title" className="bg-glow-c relative">
+    <section ref={root} id="galeria" aria-labelledby="galeria-title" className="bg-glow-c relative pb-[60px] sm:pb-[80px] lg:pb-[100px]">
       <div data-pin className="relative flex flex-col justify-center overflow-hidden py-24 lg:h-[100svh] lg:pb-6 lg:pt-[calc(var(--header-h)+1rem)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col justify-between gap-6 px-5 sm:px-8 lg:flex-row lg:items-end lg:px-12">
           <SectionHeading id="galeria-title" eyebrow={galeriaSecao.eyebrow} title={galeriaSecao.titulo} reveal="skew" size="sm" />

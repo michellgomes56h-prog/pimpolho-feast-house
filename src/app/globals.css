@@ -370,6 +370,11 @@ html.has-custom-cursor * {
     transform: translate3d(0, -20px, 0);
   }
 }
+@keyframes wave-slide {
+  to {
+    transform: translate3d(-1440px, 0, 0);
+  }
+}
 @keyframes orbit {
   to {
     transform: rotate(360deg);
@@ -579,12 +584,12 @@ html.has-custom-cursor * {
   }
   .bg-glow-a {
     background-image:
-      radial-gradient(50% 45% at 100% 0%, color-mix(in oklab, var(--blue-electric) 45%, transparent), transparent 70%),
+      radial-gradient(45% 40% at 100% 30%, color-mix(in oklab, var(--blue-electric) 42%, transparent), transparent 70%),
       radial-gradient(45% 50% at 0% 100%, color-mix(in oklab, var(--pink-hot) 28%, transparent), transparent 70%);
   }
   .bg-glow-b {
     background-image:
-      radial-gradient(45% 45% at 0% 10%, color-mix(in oklab, var(--purple-neon) 40%, transparent), transparent 70%),
+      radial-gradient(42% 40% at 0% 32%, color-mix(in oklab, var(--purple-neon) 38%, transparent), transparent 70%),
       radial-gradient(50% 45% at 100% 90%, color-mix(in oklab, var(--blue-electric) 40%, transparent), transparent 70%);
   }
   .bg-glow-c {
