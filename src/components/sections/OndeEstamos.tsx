@@ -87,7 +87,7 @@ export function OndeEstamos() {
               />
             )}
             {provisorio && (
-              <p className="pointer-events-none absolute right-4 top-4 z-[600] max-w-[calc(100%-5rem)] rounded-full border border-dashed border-[var(--lime-cta)]/70 bg-[#120a3a]/85 px-3 py-1.5 text-[0.7rem] font-bold text-[var(--lime-cta)] backdrop-blur">
+              <p className="pointer-events-none absolute right-4 top-4 z-[600] max-w-[calc(100%-5rem)] rounded-full border border-dashed border-[var(--lime-cta)]/70 bg-[var(--bg-deep)]/85 px-3 py-1.5 text-[0.7rem] font-bold text-[var(--lime-cta)] backdrop-blur">
                 {s.coordenadasPendentes}
               </p>
             )}

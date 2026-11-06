@@ -46,9 +46,9 @@ const FRAMES: { cls: string; rot: number; depth: number; glow: string; sizes: st
     sizes: "(min-width:1024px) 28vw, 52vw",
     priority: true,
   },
-  { cls: "right-[0%] top-[1%] w-[38%] aspect-[4/3] z-[1]", rot: 5, depth: 1, glow: "var(--blue-electric)", sizes: "(min-width:1024px) 20vw, 38vw" },
+  { cls: "right-[0%] top-[1%] w-[38%] aspect-[4/3] z-[1]", rot: 5, depth: 1, glow: "var(--glow-orange)", sizes: "(min-width:1024px) 20vw, 38vw" },
   { cls: "left-[0%] bottom-[11%] w-[34%] aspect-square z-[3]", rot: 6, depth: 1.4, glow: "var(--pp-P)", sizes: "(min-width:1024px) 18vw, 34vw" },
-  { cls: "right-[3%] bottom-[2%] w-[37%] aspect-[5/6] z-[3]", rot: -5, depth: 1.8, glow: "var(--purple-neon)", sizes: "(min-width:1024px) 20vw, 37vw" },
+  { cls: "right-[3%] bottom-[2%] w-[37%] aspect-[5/6] z-[3]", rot: -5, depth: 1.8, glow: "var(--glow-amber)", sizes: "(min-width:1024px) 20vw, 37vw" },
 ];
 
 function PillIcon({ kind }: { kind: "people" | "snow" | "spark" }) {
@@ -87,10 +87,10 @@ function Pill({
   return (
     <div className={`a-pop absolute z-[5] ${className}`} style={{ "--delay": `${delay}s` } as CSSProperties}>
       <div
-        className="floaty floaty-sm flex items-center border border-white/15 bg-[#1b1052]/90 gap-2.5 rounded-full py-2 pl-2 pr-4 text-[0.78rem] font-semibold text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.6)] sm:text-sm"
+        className="floaty floaty-sm flex items-center border border-white/15 bg-[var(--bg-pill)]/90 gap-2.5 rounded-full py-2 pl-2 pr-4 text-[0.78rem] font-semibold text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.6)] sm:text-sm"
         style={{ "--d": `${d}s` } as CSSProperties}
       >
-        <span className="grid h-7 w-7 place-items-center rounded-full text-[#160c45] sm:h-8 sm:w-8" style={{ background: color }}>
+        <span className="grid h-7 w-7 place-items-center rounded-full text-[var(--ink)] sm:h-8 sm:w-8" style={{ background: color }}>
           <PillIcon kind={icon} />
         </span>
         <span className="whitespace-nowrap">{label}</span>
@@ -184,7 +184,7 @@ export function Hero() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-[var(--purple-neon)] opacity-25 blur-[140px]"
+        className="pointer-events-none absolute -left-40 top-1/3 h-[520px] w-[520px] rounded-full bg-[var(--glow-amber)] opacity-25 blur-[140px]"
       />
       <Starfield stars={STARS} />
 
@@ -233,7 +233,7 @@ export function Hero() {
               className="a-fade-up group inline-flex items-center gap-3 font-semibold text-white"
               style={d(1.05)}
             >
-              <span className="relative grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-white/5 backdrop-blur transition-colors duration-300 group-hover:border-transparent group-hover:bg-white group-hover:text-[#160c45]">
+              <span className="relative grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-white/5 backdrop-blur transition-colors duration-300 group-hover:border-transparent group-hover:bg-white group-hover:text-[var(--ink)]">
                 <span aria-hidden className="absolute inset-0 rounded-full border border-white/40 [animation:pulse-ring_2.2s_var(--ease-out)_infinite]" />
                 <svg viewBox="0 0 24 24" className="ml-0.5 h-4 w-4" aria-hidden>
                   <path d="M7 4.5v15l12-7.5z" fill="currentColor" />
@@ -266,7 +266,7 @@ export function Hero() {
             />
             <div
               aria-hidden
-              className="a-fade pointer-events-none absolute right-0 top-0 h-[55%] w-[55%] rounded-full bg-[var(--blue-electric)] opacity-45 blur-[100px]"
+              className="a-fade pointer-events-none absolute right-0 top-0 h-[55%] w-[55%] rounded-full bg-[var(--glow-orange)] opacity-45 blur-[100px]"
             />
 
             {/* anel orbital */}
@@ -291,7 +291,7 @@ export function Hero() {
                   <div data-mouse={fr.depth} className="h-full w-full" style={{ rotate: `${fr.rot}deg` }}>
                     <div
                       data-cursor="hover"
-                      className="a-clip relative h-full w-full overflow-hidden rounded-[28px] border border-white/15 bg-[var(--bg-indigo)]"
+                      className="a-clip relative h-full w-full overflow-hidden rounded-[28px] border border-white/15 bg-[var(--bg-mid)]"
                       style={{ ...d(0.1 + i * 0.12), boxShadow: `0 30px 60px -20px rgba(0,0,0,.7), 0 0 50px -14px ${fr.glow}` }}
                     >
                       <Image
@@ -305,7 +305,7 @@ export function Hero() {
                       />
                       <div
                         aria-hidden
-                        className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-t from-[#120a3a]/45 via-transparent to-transparent"
+                        className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-t from-[var(--bg-deep)]/45 via-transparent to-transparent"
                       />
                       <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/10" />
                     </div>

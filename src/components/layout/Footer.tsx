@@ -23,10 +23,10 @@ export function Footer() {
   const link = "text-white/80 transition-colors hover:text-white";
 
   return (
-    <footer data-loop-zone className="relative overflow-hidden border-t border-white/10 bg-[#0c0629] pt-20">
+    <footer data-loop-zone className="relative overflow-hidden border-t border-white/10 bg-[var(--bg-darkest)] pt-20">
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[var(--purple-neon)] opacity-25 blur-[120px]"
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[80%] -translate-x-1/2 rounded-full bg-[var(--glow-amber)] opacity-25 blur-[120px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">

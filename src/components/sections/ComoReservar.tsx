@@ -60,7 +60,7 @@ export function ComoReservar() {
             />
             {reservar.passos.map((p, i) => (
               <li key={p.titulo} data-step className="group relative flex gap-6 pb-14 last:pb-0 sm:gap-10">
-                <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border border-white/15 bg-[var(--bg-deep)] text-lg font-extrabold text-white/40 transition-all duration-700 ease-[var(--ease-spring)] group-[.is-on]:scale-110 group-[.is-on]:border-transparent group-[.is-on]:bg-[var(--lime-cta)] group-[.is-on]:text-[#160c45] group-[.is-on]:shadow-[0_0_0_8px_rgba(214,245,91,0.12),0_0_40px_var(--lime-cta)] sm:h-[72px] sm:w-[72px] sm:text-2xl">
+                <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-full border border-white/15 bg-[var(--bg-deep)] text-lg font-extrabold text-white/40 transition-all duration-700 ease-[var(--ease-spring)] group-[.is-on]:scale-110 group-[.is-on]:border-transparent group-[.is-on]:bg-[var(--lime-cta)] group-[.is-on]:text-[var(--ink)] group-[.is-on]:shadow-[0_0_0_8px_rgba(214,245,91,0.12),0_0_40px_var(--lime-cta)] sm:h-[72px] sm:w-[72px] sm:text-2xl">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div

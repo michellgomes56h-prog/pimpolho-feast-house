@@ -11,6 +11,7 @@ import { EventIcon } from "@/components/decor/EventIcon";
 import { burstConfetti } from "@/components/ui/confetti";
 
 function EventCard({ evento, index }: { evento: Evento; index: number }) {
+  const destaque = "destaque" in evento ? evento.destaque : null;
   const card = useRef<HTMLDivElement>(null);
 
   // tilt 3D seguindo o mouse
@@ -46,7 +47,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
   const onClick = (e: MouseEvent<HTMLAnchorElement>) => burstConfetti(e.clientX, e.clientY, 50);
 
   return (
-    <li data-card className="group relative [perspective:1100px]" style={{ "--accent": evento.cor } as CSSProperties}>
+    <li data-card className={`group relative [perspective:1100px] ${destaque ? "sm:col-span-2" : ""}`} style={{ "--accent": evento.cor } as CSSProperties}>
       {/* glow por trás */}
       <div
         aria-hidden
@@ -64,22 +65,28 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
             background: "radial-gradient(400px circle at var(--mx,50%) var(--my,50%), color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%)",
           }}
         />
-        <div className="relative aspect-[4/3] overflow-hidden rounded-[22px]" data-cursor="hover">
+        <div className={`relative overflow-hidden rounded-[22px] ${destaque ? "aspect-[4/3] sm:aspect-[11/4]" : "aspect-[4/3]"}`} data-cursor="hover">
           <Image
             src={evento.foto.src}
             alt={evento.foto.alt}
             fill
             sizes="(min-width:1024px) 30vw, (min-width:640px) 45vw, 92vw"
             className="object-cover transition-transform duration-[1.1s] ease-[var(--ease-out)] group-hover:scale-110"
+            style={{ objectPosition: "pos" in evento.foto ? evento.foto.pos : undefined }}
           />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#120a3a]/70 via-transparent to-transparent" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[var(--bg-deep)]/70 via-transparent to-transparent" />
           <span className="absolute right-4 top-4 rounded-full border border-white/25 bg-black/25 px-3 py-1 text-[0.7rem] font-semibold tracking-widest text-white/90 backdrop-blur">
             {String(index + 1).padStart(2, "0")}
           </span>
+          {destaque && (
+            <span className="absolute left-4 top-4 rounded-full bg-[var(--accent)] px-3.5 py-1.5 text-xs font-bold tracking-wide text-[var(--ink)] shadow-[0_8px_24px_-6px_var(--accent)]">
+              {destaque}
+            </span>
+          )}
         </div>
         <div className="relative flex flex-1 flex-col px-3 pb-3 pt-6 [transform:translateZ(30px)]">
           <span
-            className="absolute -top-7 left-4 grid h-14 w-14 place-items-center rounded-2xl text-[#160c45] shadow-[0_10px_30px_-8px_var(--accent)] transition-transform duration-500 ease-[var(--ease-spring)] group-hover:-rotate-6 group-hover:scale-110"
+            className="absolute -top-7 left-4 grid h-14 w-14 place-items-center rounded-2xl text-[var(--ink)] shadow-[0_10px_30px_-8px_var(--accent)] transition-transform duration-500 ease-[var(--ease-spring)] group-hover:-rotate-6 group-hover:scale-110"
             style={{ background: "var(--accent)" }}
           >
             <EventIcon name={evento.icone} className="h-7 w-7" />
@@ -91,7 +98,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClick}
-            className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 py-2 pl-4 pr-2 text-sm font-semibold text-white transition-[background-color,color,border-color] duration-300 hover:border-transparent hover:bg-[var(--accent)] hover:text-[#160c45]"
+            className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 py-2 pl-4 pr-2 text-sm font-semibold text-white transition-[background-color,color,border-color] duration-300 hover:border-transparent hover:bg-[var(--accent)] hover:text-[var(--ink)]"
           >
             {eventosSecao.botao}
             <span className="grid h-7 w-7 place-items-center overflow-hidden rounded-full bg-white/10">

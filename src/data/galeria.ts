@@ -13,7 +13,7 @@ export const galeriaSecao = {
 
 export const galeria = [
   { src: "/images/galeria/piscina-de-bolinhas.jpg", alt: "Piscina de bolinhas", legenda: "Área kids", forma: "alta" },
-  { src: "/images/galeria/salao-principal.jpg", alt: "[FOTO: salão principal]", legenda: "Salão principal", forma: "larga" },
+  { src: "/images/galeria/salao-principal.jpg", alt: "Salão principal com playground, piscina de bolinhas e escorregador", legenda: "Salão principal", forma: "larga" },
   { src: "/images/galeria/sinuca.jpg", alt: "Mesa de sinuca", legenda: "Jogos · sinuca", forma: "quadrada" },
   { src: "/images/galeria/mesa-do-bolo.jpg", alt: "[FOTO: mesa do bolo]", legenda: "Mesa do bolo", forma: "alta" },
   { src: "/images/galeria/area-externa.jpg", alt: "[FOTO: área externa]", legenda: "Área externa", forma: "larga" },

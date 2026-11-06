@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Grandstander, Sora } from "next/font/google";
+import { Caveat, Grandstander, Sora } from "next/font/google";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { site } from "@/data/site";
 import { contato } from "@/data/contato";
@@ -8,6 +8,8 @@ import "./globals.css";
 // Fontes variáveis: um arquivo por família (carrega mais rápido)
 const sora = Sora({ variable: "--font-sora", subsets: ["latin"], display: "swap" });
 const grandstander = Grandstander({ variable: "--font-grandstander", subsets: ["latin"], display: "swap" });
+// letra cursiva do cartão da frase (fica abaixo da dobra → sem preload, não pesa no carregamento)
+const caveat = Caveat({ variable: "--font-caveat", subsets: ["latin"], display: "swap", preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url.includes("[") ? "http://localhost:3000" : site.url),
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: site.seo.title, description: site.seo.description, images: [site.seo.ogImage] },
 };
 
-export const viewport: Viewport = { themeColor: "#120A3A", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#331509", width: "device-width", initialScale: 1 };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -34,6 +36,7 @@ const jsonLd = {
   url: site.url,
   image: site.seo.ogImage,
   telephone: contato.whatsapp,
+  maximumAttendeeCapacity: contato.capacidade,
   address: {
     "@type": "PostalAddress",
     streetAddress: contato.endereco,
@@ -48,14 +51,14 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${sora.variable} ${grandstander.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${sora.variable} ${grandstander.variable} ${caveat.variable}`} suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body className="antialiased">
         <a
           href="#conteudo"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[var(--lime-cta)] focus:px-5 focus:py-3 focus:font-semibold focus:text-[#160c45]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[var(--lime-cta)] focus:px-5 focus:py-3 focus:font-semibold focus:text-[var(--ink)]"
         >
           Pular para o conteúdo
         </a>

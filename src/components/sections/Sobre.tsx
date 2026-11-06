@@ -11,7 +11,7 @@ import { Sparkle } from "@/components/decor/Sparkle";
 function RotatingBadge({ text }: { text: string }) {
   const label = `${text} ✦ ${text} ✦ `;
   return (
-    <div className="relative grid h-32 w-32 place-items-center rounded-full bg-[var(--lime-cta)] text-[#160c45] shadow-[0_20px_50px_-15px_var(--lime-cta)] sm:h-36 sm:w-36">
+    <div className="relative grid h-32 w-32 place-items-center rounded-full bg-[var(--lime-cta)] text-[var(--ink)] shadow-[0_20px_50px_-15px_var(--lime-cta)] sm:h-36 sm:w-36">
       <div aria-hidden className="absolute inset-0 [animation:orbit_18s_linear_infinite]">
         <svg viewBox="0 0 200 200" className="h-full w-full">
           <defs>
@@ -22,7 +22,7 @@ function RotatingBadge({ text }: { text: string }) {
           </text>
         </svg>
       </div>
-      <Sparkle className="h-8 w-8" color="#160c45" />
+      <Sparkle className="h-8 w-8" color="var(--ink)" />
     </div>
   );
 }
@@ -85,6 +85,7 @@ export function Sobre() {
                 <dd className="flex items-baseline gap-1 text-[clamp(1.9rem,4.2vw,3.6rem)] font-extrabold leading-none tracking-[-0.04em]">
                   {n.valor !== null ? (
                     <>
+                      {n.prefixo && <span className="mr-1 text-[0.4em] font-bold tracking-normal text-[var(--text-muted)]">{n.prefixo}</span>}
                       <span data-count={n.valor}>0</span>
                       <span className="text-grad">{n.sufixo}</span>
                     </>
@@ -109,7 +110,7 @@ export function Sobre() {
             className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[32px] border border-white/15 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.8)]"
           >
             <Image src={sobre.foto.src} alt={sobre.foto.alt} fill sizes="(min-width:1024px) 520px, 90vw" className="scale-110 object-cover" />
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#120a3a]/60 to-transparent" />
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[var(--bg-deep)]/60 to-transparent" />
           </div>
           {/* arco de contorno */}
           <div aria-hidden className="pointer-events-none absolute -inset-4 rounded-t-[999px] rounded-b-[44px] border border-dashed border-white/15" />

@@ -10,6 +10,7 @@ import { Depoimentos } from "@/components/sections/Depoimentos";
 import { OndeEstamos } from "@/components/sections/OndeEstamos";
 import { Faq } from "@/components/sections/Faq";
 import { CtaFinal } from "@/components/sections/CtaFinal";
+import { Frase } from "@/components/sections/Frase";
 import { LazyExtras } from "@/components/providers/LazyExtras";
 import { WaveDivider } from "@/components/decor/WaveDivider";
 
@@ -22,24 +23,26 @@ export default function Home() {
         {/* ondas: a seção de baixo "entra" na de cima */}
         <WaveDivider size="lg" tint="var(--pink-hot)" seed={1} />
         <Sobre />
-        <WaveDivider tint="var(--purple-neon)" seed={2} reverse />
+        <WaveDivider tint="var(--glow-amber)" seed={2} reverse />
         <Eventos />
-        <WaveDivider tint="var(--blue-electric)" seed={3} />
+        <WaveDivider tint="var(--glow-orange)" seed={3} />
         <Galeria />
         <WaveDivider tint="var(--pink-hot)" seed={4} reverse />
         <Estrutura />
-        <WaveDivider tint="var(--purple-neon)" seed={5} />
+        <WaveDivider tint="var(--glow-amber)" seed={5} />
         <ComoReservar />
-        <WaveDivider tint="var(--blue-electric)" seed={6} reverse />
+        <WaveDivider tint="var(--glow-orange)" seed={6} reverse />
         <Depoimentos />
         <WaveDivider tint="var(--pink-hot)" seed={7} />
         <OndeEstamos />
-        <WaveDivider tint="var(--purple-neon)" seed={8} reverse />
+        <WaveDivider tint="var(--glow-amber)" seed={8} reverse />
         <Faq />
-        <WaveDivider tint="var(--blue-electric)" seed={9} />
+        <WaveDivider tint="var(--glow-orange)" seed={9} />
+        <Frase />
+        <WaveDivider tint="var(--pink-hot)" seed={11} reverse />
         <CtaFinal />
       </main>
-      <WaveDivider fill="#0c0629" tint="var(--purple-neon)" seed={10} reverse />
+      <WaveDivider fill="var(--bg-darkest)" tint="var(--glow-amber)" seed={10} reverse />
       <Footer />
       <LazyExtras />
     </>

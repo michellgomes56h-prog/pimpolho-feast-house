@@ -167,7 +167,7 @@ export function Galeria() {
                   className="group block text-left"
                   data-cursor="hover"
                 >
-                  <span data-frame className={`relative block overflow-hidden rounded-[28px] border border-white/12 bg-[var(--bg-indigo)] ${SHAPE[f.forma]}`}>
+                  <span data-frame className={`relative block overflow-hidden rounded-[28px] border border-white/12 bg-[var(--bg-mid)] ${SHAPE[f.forma]}`}>
                     <span data-parallax className="absolute inset-y-0 -left-[9%] -right-[9%] block">
                       <Image
                         src={f.src}
@@ -177,8 +177,8 @@ export function Galeria() {
                         className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-out)] group-hover:scale-105"
                       />
                     </span>
-                    <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#120a3a]/75 via-transparent to-transparent" />
-                    <span className="absolute right-4 top-4 grid h-10 w-10 scale-75 place-items-center rounded-full bg-white/90 text-[#160c45] opacity-0 transition-all duration-500 ease-[var(--ease-spring)] group-hover:scale-100 group-hover:opacity-100">
+                    <span aria-hidden className="absolute inset-0 bg-gradient-to-t from-[var(--bg-deep)]/75 via-transparent to-transparent" />
+                    <span className="absolute right-4 top-4 grid h-10 w-10 scale-75 place-items-center rounded-full bg-white/90 text-[var(--ink)] opacity-0 transition-all duration-500 ease-[var(--ease-spring)] group-hover:scale-100 group-hover:opacity-100">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
                         <path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" />
                       </svg>

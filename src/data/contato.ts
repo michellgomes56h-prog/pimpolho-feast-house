@@ -13,6 +13,8 @@ export const contato = {
   uf: "[UF]",
   cep: "[CEP]",
   horario: "[HORÁRIO]",
+  /** Capacidade máxima do espaço (pessoas). */
+  capacidade: 76,
   latitude: "[LATITUDE]",
   longitude: "[LONGITUDE]",
   /**

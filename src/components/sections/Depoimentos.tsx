@@ -47,7 +47,7 @@ export function Depoimentos() {
                 </p>
               </blockquote>
               <footer className="relative mt-8 flex items-center gap-3">
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-[var(--c)] text-sm font-extrabold text-[#160c45]" aria-hidden>
+                <span className="grid h-11 w-11 place-items-center rounded-full bg-[var(--c)] text-sm font-extrabold text-[var(--ink)]" aria-hidden>
                   ✦
                 </span>
                 <span>

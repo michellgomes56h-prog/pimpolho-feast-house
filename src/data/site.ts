@@ -1,3 +1,5 @@
+import { contato } from "./contato";
+
 /**
  * Textos gerais do site (header, hero, SEO).
  * Edite aqui sem mexer nos componentes.
@@ -12,8 +14,7 @@ export const site = {
   creditos: { texto: "Site por VOID DEV", url: "#" },
   seo: {
     title: "Pimpolho Feast House — Espaço para festas e eventos",
-    description:
-      "Espaço completo para aniversários, formaturas, 15 anos, chá revelação, confraternizações e pequenos casamentos. Peça seu orçamento pelo WhatsApp.",
+    description: `Espaço de festas com foco no público infantil: aniversários, chá de bebê e chá revelação, além de formaturas, 15 anos e confraternizações. Até ${contato.capacidade} convidados. Peça seu orçamento pelo WhatsApp.`,
     ogImage: "/og-image.jpg",
   },
 };
@@ -38,10 +39,10 @@ export const hero = {
   tituloLinha2Antes: "No",
   tituloLinha2Depois: ".",
   subtitulo:
-    "Um espaço completo para aniversários, formaturas e todos os momentos que merecem ser celebrados. Você traz os convidados, a gente entrega o cenário.",
+    "Um espaço completo para festas infantis, chá de bebê e todos os momentos que merecem ser celebrados. Você traz os convidados, a gente entrega o cenário.",
   ctaPrincipal: "Fazer orçamento",
   ctaSecundario: { label: "Conhecer o espaço", href: "#galeria" },
-  tiposEvento: ["Aniversários", "Formaturas", "15 anos", "Eventos corporativos"],
+  tiposEvento: ["Festas infantis", "Chá de bebê", "Formaturas", "15 anos"],
   /** Ordem: [grande central, superior direita, inferior esquerda, inferior direita]. `pos` = enquadramento (object-position). */
   fotos: [
     { src: "/images/hero/piscina-de-bolinhas.jpg", alt: "Criança brincando na piscina de bolinhas do Pimpolho", pos: "50% 40%" },
@@ -50,13 +51,13 @@ export const hero = {
     { src: "/images/hero/recepcao-personagem.jpg", alt: "Equipe do Pimpolho com personagem em festa", pos: "50% 30%" },
   ],
   etiquetas: {
-    capacidade: "Até [CAPACIDADE] convidados",
+    capacidade: `Até ${contato.capacidade} convidados`,
     clima: "Espaço climatizado",
     momentos: "Momentos para sempre",
   },
   rodape: {
     rolar: "Role para descobrir",
-    tipos: "Aniversários • Formaturas • Eventos",
+    tipos: "Festas infantis • Chá de bebê • Eventos",
   },
 };
 
@@ -67,14 +68,14 @@ export const sobre = {
     "[TEXTO SOBRE O ESPAÇO — 2 a 3 frases contando a história do Pimpolho, o clima das festas e o cuidado da equipe.]",
     "Brinquedos, jogos e ambientes para todas as idades: enquanto a criançada se diverte, os adultos aproveitam a festa com tranquilidade.",
   ],
-  foto: { src: "/images/sobre/salao-principal.jpg", alt: "[FOTO: salão principal]" },
+  foto: { src: "/images/sobre/salao-principal.jpg", alt: "Salão principal com playground, piscina de bolinhas e escorregador" },
   selo: "Feito para festejar",
   /** valor: número para o contador animado. Enquanto for null, mostra o placeholder. */
   numeros: [
-    { valor: null as number | null, placeholder: "[CAPACIDADE]", sufixo: "", label: "convidados" },
-    { valor: null as number | null, placeholder: "[ANOS]", sufixo: "", label: "anos de festas" },
-    { valor: null as number | null, placeholder: "[EVENTOS]", sufixo: "+", label: "eventos realizados" },
-    { valor: null as number | null, placeholder: "[AMBIENTES]", sufixo: "", label: "ambientes" },
+    { valor: contato.capacidade as number | null, placeholder: "[CAPACIDADE]", prefixo: "até", sufixo: "", label: "convidados" },
+    { valor: null as number | null, placeholder: "[ANOS]", prefixo: "", sufixo: "", label: "anos de festas" },
+    { valor: null as number | null, placeholder: "[EVENTOS]", prefixo: "", sufixo: "+", label: "eventos realizados" },
+    { valor: null as number | null, placeholder: "[AMBIENTES]", prefixo: "", sufixo: "", label: "ambientes" },
   ],
 };
 

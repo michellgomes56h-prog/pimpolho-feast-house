@@ -55,13 +55,13 @@ export function CtaFinal() {
     <section ref={root} data-loop-zone aria-labelledby="cta-title" className="relative px-3 py-16 sm:px-6 sm:py-24">
       <div data-box className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[40px] px-6 py-24 text-center sm:px-12 sm:py-32">
         {/* gradiente animado (camadas girando devagar — só transform) */}
-        <div aria-hidden className="absolute inset-0 bg-[var(--bg-indigo)]" />
+        <div aria-hidden className="absolute inset-0 bg-[var(--bg-mid)]" />
         <div aria-hidden className="absolute -inset-1/2 [animation:orbit_28s_linear_infinite]">
           <div className="absolute left-[18%] top-[22%] h-[45%] w-[45%] rounded-full bg-[var(--pink-hot)] opacity-70 blur-[110px]" />
-          <div className="absolute bottom-[20%] right-[18%] h-[45%] w-[45%] rounded-full bg-[var(--blue-electric)] opacity-80 blur-[110px]" />
+          <div className="absolute bottom-[20%] right-[18%] h-[45%] w-[45%] rounded-full bg-[var(--glow-orange)] opacity-80 blur-[110px]" />
         </div>
         <div aria-hidden className="absolute -inset-1/2 [animation:orbit_40s_linear_infinite_reverse]">
-          <div className="absolute right-[25%] top-[25%] h-[35%] w-[35%] rounded-full bg-[var(--purple-neon)] opacity-70 blur-[100px]" />
+          <div className="absolute right-[25%] top-[25%] h-[35%] w-[35%] rounded-full bg-[var(--glow-amber)] opacity-70 blur-[100px]" />
           <div className="absolute bottom-[28%] left-[28%] h-[25%] w-[25%] rounded-full bg-[var(--peach)] opacity-40 blur-[90px]" />
         </div>
         <div aria-hidden className="noise absolute inset-0" />

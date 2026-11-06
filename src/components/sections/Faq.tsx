@@ -53,7 +53,7 @@ export function Faq() {
                     <span
                       aria-hidden
                       className={`relative grid h-10 w-10 shrink-0 place-items-center rounded-full transition-all duration-500 ease-[var(--ease-spring)] ${
-                        isOpen ? "rotate-[135deg] bg-[var(--lime-cta)] text-[#160c45]" : "bg-white/10"
+                        isOpen ? "rotate-[135deg] bg-[var(--lime-cta)] text-[var(--ink)]" : "bg-white/10"
                       }`}
                     >
                       <span className="absolute h-[2px] w-4 rounded bg-current" />

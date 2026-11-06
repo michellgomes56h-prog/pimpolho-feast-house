@@ -146,7 +146,7 @@ export function Assistente() {
         aria-expanded={open}
         aria-controls="assistente"
         aria-label={open ? assistente.fechar : assistente.botao}
-        className="group fixed bottom-5 right-5 z-[70] flex h-16 items-center gap-3 rounded-full bg-[linear-gradient(135deg,var(--pink-hot),var(--purple-neon))] pl-4 pr-4 text-white shadow-[0_18px_40px_-10px_rgba(255,62,165,0.7)] transition-transform duration-500 ease-[var(--ease-spring)] hover:scale-105 sm:bottom-7 sm:right-7 sm:pr-6"
+        className="group fixed bottom-5 right-5 z-[70] flex h-16 items-center gap-3 rounded-full bg-[linear-gradient(135deg,var(--pink-hot),var(--glow-amber))] pl-4 pr-4 text-white shadow-[0_18px_40px_-10px_rgba(255,122,61,0.65)] transition-transform duration-500 ease-[var(--ease-spring)] hover:scale-105 sm:bottom-7 sm:right-7 sm:pr-6"
       >
         <span className="relative grid h-9 w-9 place-items-center">
           <svg
@@ -177,7 +177,7 @@ export function Assistente() {
         {!open && (
           <span aria-hidden className="absolute -right-0.5 -top-0.5 flex h-4 w-4">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--lime-cta)] opacity-75" />
-            <span className="relative inline-flex h-4 w-4 rounded-full border-2 border-[#120a3a] bg-[var(--lime-cta)]" />
+            <span className="relative inline-flex h-4 w-4 rounded-full border-2 border-[var(--bg-deep)] bg-[var(--lime-cta)]" />
           </span>
         )}
       </button>
@@ -190,7 +190,7 @@ export function Assistente() {
         aria-label={assistente.titulo}
         aria-hidden={!open}
         inert={!open}
-        className="invisible fixed bottom-24 right-3 z-[70] flex h-[min(620px,calc(100svh-120px))] w-[calc(100vw-24px)] flex-col overflow-hidden rounded-[28px] border border-white/15 bg-[#160c45]/80 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)] backdrop-blur-2xl sm:bottom-28 sm:right-7 sm:w-[400px]"
+        className="invisible fixed bottom-24 right-3 z-[70] flex h-[min(620px,calc(100svh-120px))] w-[calc(100vw-24px)] flex-col overflow-hidden rounded-[28px] border border-white/15 bg-[var(--ink)]/80 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.85)] backdrop-blur-2xl sm:bottom-28 sm:right-7 sm:w-[400px]"
       >
         {/* cabeçalho */}
         <div data-anim className="relative flex items-center gap-3 border-b border-white/10 px-5 py-4">
@@ -199,10 +199,10 @@ export function Assistente() {
             className="pointer-events-none absolute inset-0 opacity-60"
             style={{
               background:
-                "radial-gradient(80% 140% at 0% 0%, rgba(255,62,165,.35), transparent 60%), radial-gradient(80% 140% at 100% 0%, rgba(46,70,240,.35), transparent 60%)",
+                "radial-gradient(80% 140% at 0% 0%, rgba(255,62,165,.35), transparent 60%), radial-gradient(80% 140% at 100% 0%, rgba(255,138,61,.35), transparent 60%)",
             }}
           />
-          <span className="relative grid h-11 w-11 place-items-center rounded-full bg-[linear-gradient(135deg,var(--pp-P),var(--pink-hot),var(--purple-neon))] font-display text-xl font-extrabold text-white">
+          <span className="relative grid h-11 w-11 place-items-center rounded-full bg-[linear-gradient(135deg,var(--pp-P),var(--pink-hot),var(--glow-amber))] font-display text-xl font-extrabold text-white">
             P
           </span>
           <div className="relative flex-1">
@@ -231,7 +231,7 @@ export function Assistente() {
               <p
                 className={`max-w-[85%] whitespace-pre-line rounded-[20px] px-4 py-2.5 text-[0.92rem] leading-relaxed [animation:in-fade-up_.45s_var(--ease-out)_both] ${
                   m.from === "user"
-                    ? "rounded-br-md bg-[var(--lime-cta)] font-medium text-[#160c45]"
+                    ? "rounded-br-md bg-[var(--lime-cta)] font-medium text-[var(--ink)]"
                     : "rounded-bl-md border border-white/10 bg-white/[0.08] text-white"
                 }`}
               >
@@ -290,7 +290,7 @@ export function Assistente() {
                       key={o}
                       type="button"
                       onClick={() => answerFlow(o)}
-                      className="rounded-full border border-[var(--lime-cta)]/50 px-3 py-1.5 text-xs font-semibold text-[var(--lime-cta)] transition-colors hover:bg-[var(--lime-cta)] hover:text-[#160c45]"
+                      className="rounded-full border border-[var(--lime-cta)]/50 px-3 py-1.5 text-xs font-semibold text-[var(--lime-cta)] transition-colors hover:bg-[var(--lime-cta)] hover:text-[var(--ink)]"
                     >
                       {o}
                       {"sufixoOpcao" in passoAtual ? passoAtual.sufixoOpcao : ""}
@@ -303,7 +303,7 @@ export function Assistente() {
                       onClick={() => ask(r.pergunta, r.id)}
                       className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
                         r.id === "orcamento"
-                          ? "border-transparent bg-[var(--lime-cta)] text-[#160c45] hover:brightness-110"
+                          ? "border-transparent bg-[var(--lime-cta)] text-[var(--ink)] hover:brightness-110"
                           : "border-white/20 text-white/90 hover:border-white/50 hover:bg-white/10"
                       }`}
                     >
@@ -331,7 +331,7 @@ export function Assistente() {
           <button
             type="submit"
             aria-label={assistente.enviar}
-            className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[var(--lime-cta)] text-[#160c45] transition-transform hover:scale-105"
+            className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[var(--lime-cta)] text-[var(--ink)] transition-transform hover:scale-105"
           >
             <svg
               viewBox="0 0 24 24"

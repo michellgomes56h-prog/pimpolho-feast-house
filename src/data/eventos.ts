@@ -2,28 +2,30 @@
  * Eventos que o espaço recebe (cards da seção "Eventos").
  * cor: uma das cores do wordmark (CSS variable).
  * icone: "balao" | "taca" | "capelo" | "coroa" | "chupeta" | "maleta"
+ * destaque: texto do selo (opcional) — o card ganha destaque e ocupa duas colunas
  */
 export const eventosSecao = {
   eyebrow: "Eventos que recebemos",
   titulo: "Cada festa com a sua cara.",
-  texto: "Do primeiro aninho à formatura: o espaço se adapta ao seu evento.",
+  texto: "Festa infantil é a nossa especialidade — e o espaço também recebe chá de bebê, formaturas e outros eventos.",
   botao: "Quero esse evento",
 };
 
 export const eventos = [
   {
     titulo: "Aniversário infantil",
-    descricao: "Brinquedos, jogos e muita diversão para a criançada.",
+    descricao: "Piscina de bolinhas, jogos e muita diversão para a criançada. É a nossa especialidade!",
+    destaque: "Nosso foco ✦",
     icone: "balao",
     cor: "var(--pp-P)",
-    foto: { src: "/images/eventos/aniversario-infantil.jpg", alt: "Criança jogando aero hockey em festa infantil" },
+    foto: { src: "/images/eventos/aniversario-infantil.jpg", alt: "Playground com piscina de bolinhas, túnel e escorregador", pos: "50% 45%" },
   },
   {
-    titulo: "Aniversário adulto",
-    descricao: "Clima de festa para comemorar com quem você ama.",
-    icone: "taca",
-    cor: "var(--pp-m)",
-    foto: { src: "/images/eventos/aniversario-adulto.jpg", alt: "[FOTO: aniversário adulto]" },
+    titulo: "Chá de bebê / revelação",
+    descricao: "O momento mais esperado, com família e amigos por perto.",
+    icone: "chupeta",
+    cor: "var(--pp-i)",
+    foto: { src: "/images/eventos/cha-revelacao.jpg", alt: "[FOTO: chá de bebê]" },
   },
   {
     titulo: "Formatura",
@@ -38,13 +40,6 @@ export const eventos = [
     icone: "coroa",
     cor: "var(--pp-o2)",
     foto: { src: "/images/eventos/15-anos.jpg", alt: "[FOTO: 15 anos]" },
-  },
-  {
-    titulo: "Chá revelação / bebê",
-    descricao: "O momento mais esperado, com família e amigos por perto.",
-    icone: "chupeta",
-    cor: "var(--pp-i)",
-    foto: { src: "/images/eventos/cha-revelacao.jpg", alt: "[FOTO: chá revelação]" },
   },
   {
     titulo: "Corporativo",

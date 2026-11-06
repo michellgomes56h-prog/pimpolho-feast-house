@@ -1,3 +1,5 @@
+import { contato } from "./contato";
+
 /**
  * Assistente "Tire suas dúvidas" — baseado em regras (sem IA, sem backend).
  * REGRA: nenhuma resposta mostra preços, valores ou faixas de preço.
@@ -72,7 +74,7 @@ export const fluxoOrcamento = {
     {
       campo: "evento",
       pergunta: "Qual é o tipo de evento?",
-      opcoes: ["Aniversário infantil", "Aniversário adulto", "Formatura", "15 anos", "Chá revelação/bebê", "Corporativo", "Outro"],
+      opcoes: ["Aniversário infantil", "Chá de bebê/revelação", "Formatura", "15 anos", "Corporativo", "Outro"],
       placeholder: "Ou digite o tipo de evento…",
     },
     { campo: "data", pergunta: "Qual a data desejada?", opcoes: [], placeholder: "Ex.: 14/03 ou março", tipo: "texto" },
@@ -85,8 +87,8 @@ export const fluxoOrcamento = {
     },
     {
       campo: "convidados",
-      pergunta: "Quantos convidados, aproximadamente?",
-      opcoes: ["Até 30", "30 a 60", "60 a 100", "Mais de 100"],
+      pergunta: `Quantos convidados, aproximadamente? (o espaço comporta até ${contato.capacidade} pessoas)`,
+      opcoes: ["Até 30", "30 a 50", `50 a ${contato.capacidade}`],
       placeholder: "Número aproximado",
     },
     { campo: "nome", pergunta: "Pra fechar: qual é o seu nome?", opcoes: [], placeholder: "Seu nome" },

@@ -116,7 +116,7 @@ export default function MapaLeaflet({ lat, lng, nome, endereco, googleUrl, wazeU
                   href={googleUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full bg-[var(--lime-cta)] px-4 py-2 text-center text-sm font-bold !text-[#160c45]"
+                  className="rounded-full bg-[var(--lime-cta)] px-4 py-2 text-center text-sm font-bold !text-[var(--ink)]"
                 >
                   {labels.googleMaps} ↗
                 </a>
@@ -137,9 +137,9 @@ export default function MapaLeaflet({ lat, lng, nome, endereco, googleUrl, wazeU
       <div
         ref={hint}
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-[500] grid place-items-center bg-[#120a3a]/55 text-sm font-semibold opacity-0 backdrop-blur-[2px] transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 z-[500] grid place-items-center bg-[var(--bg-deep)]/55 text-sm font-semibold opacity-0 backdrop-blur-[2px] transition-opacity duration-300"
       >
-        <span className="rounded-full border border-white/20 bg-[#120a3a]/80 px-5 py-2.5">{labels.dicaZoom}</span>
+        <span className="rounded-full border border-white/20 bg-[var(--bg-deep)]/80 px-5 py-2.5">{labels.dicaZoom}</span>
       </div>
     </div>
   );

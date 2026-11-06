@@ -179,7 +179,7 @@ export function Lightbox({ items, index, from, getRect, labels, onClose }: Props
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
     >
-      <div className="absolute inset-0 bg-[#0b0626]/85 backdrop-blur-xl" onClick={close} />
+      <div className="absolute inset-0 bg-[var(--bg-darkest)]/85 backdrop-blur-xl" onClick={close} />
 
       {box && (
         <div
@@ -207,7 +207,7 @@ export function Lightbox({ items, index, from, getRect, labels, onClose }: Props
         type="button"
         onClick={close}
         aria-label={labels.fechar}
-        className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-white/10 backdrop-blur transition-colors hover:bg-white hover:text-[#160c45] sm:right-8 sm:top-8"
+        className="absolute right-4 top-4 grid h-12 w-12 place-items-center rounded-full border border-white/20 bg-white/10 backdrop-blur transition-colors hover:bg-white hover:text-[var(--ink)] sm:right-8 sm:top-8"
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
           <path d="M6 6l12 12M18 6L6 18" />
@@ -225,7 +225,7 @@ export function Lightbox({ items, index, from, getRect, labels, onClose }: Props
           type="button"
           onClick={() => go(dir)}
           aria-label={label}
-          className={`absolute top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-white/10 backdrop-blur transition-colors hover:bg-[var(--lime-cta)] hover:text-[#160c45] sm:h-14 sm:w-14 ${pos}`}
+          className={`absolute top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-white/10 backdrop-blur transition-colors hover:bg-[var(--lime-cta)] hover:text-[var(--ink)] sm:h-14 sm:w-14 ${pos}`}
         >
           <svg
             viewBox="0 0 24 24"
