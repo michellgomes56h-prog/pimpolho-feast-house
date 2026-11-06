@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Sobre } from "@/components/sections/Sobre";
 import { Eventos } from "@/components/sections/Eventos";
+import { Personalizado } from "@/components/sections/Personalizado";
 import { Galeria } from "@/components/sections/Galeria";
 import { Estrutura } from "@/components/sections/Estrutura";
 import { ComoReservar } from "@/components/sections/ComoReservar";
@@ -25,6 +26,8 @@ export default function Home() {
         <Sobre />
         <WaveDivider tint="var(--glow-amber)" seed={2} reverse />
         <Eventos />
+        <WaveDivider tint="var(--pink-hot)" seed={12} reverse />
+        <Personalizado />
         <WaveDivider tint="var(--glow-orange)" seed={3} />
         <Galeria />
         <WaveDivider tint="var(--pink-hot)" seed={4} reverse />
