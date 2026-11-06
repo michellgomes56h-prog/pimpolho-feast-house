@@ -8,8 +8,8 @@ export const contato = {
   whatsapp: "555591751519",
   /** Como o número aparece escrito no site. */
   whatsappExibicao: "(55) 9175-1519",
-  instagram: "[INSTAGRAM]", // ex.: "pimpolhofeasthouse" (sem @)
-  instagramUrl: "[INSTAGRAM_URL]",
+  instagram: "pimpolhofeasthouse",
+  instagramUrl: "https://www.instagram.com/pimpolhofeasthouse",
   endereco: "R. Porto Alegre, 725 - Fritsch",
   cidade: "Panambi",
   uf: "RS",
