@@ -32,7 +32,7 @@ export function PimpolhoWordmark({ className = "", intro = false, delay = 0, ste
 
   return (
     <span
-      className={`inline-flex items-baseline font-display font-extrabold leading-none tracking-[-0.01em] ${intro ? "pp-intro" : ""} ${className}`}
+      className={`inline-flex items-baseline font-display font-normal leading-none tracking-[0.01em] ${intro ? "pp-intro" : ""} ${className}`}
       {...a11y}
     >
       {Array.from(label).map((ch, i) => (

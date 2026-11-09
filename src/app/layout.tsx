@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Caveat, Grandstander, Sora } from "next/font/google";
+import { Caveat, Emilys_Candy, Sora } from "next/font/google";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { site } from "@/data/site";
 import { contato } from "@/data/contato";
@@ -7,7 +7,8 @@ import "./globals.css";
 
 // Fontes variáveis: um arquivo por família (carrega mais rápido)
 const sora = Sora({ variable: "--font-sora", subsets: ["latin"], display: "swap" });
-const grandstander = Grandstander({ variable: "--font-grandstander", subsets: ["latin"], display: "swap" });
+// fonte do nome "Pimpolho" (parecida com o letreiro da fachada — escolhida pela cliente)
+const emilys = Emilys_Candy({ variable: "--font-emilys", subsets: ["latin"], weight: "400", display: "swap" });
 // letra cursiva do cartão da frase (fica abaixo da dobra → sem preload, não pesa no carregamento)
 const caveat = Caveat({ variable: "--font-caveat", subsets: ["latin"], display: "swap", preload: false });
 
@@ -51,7 +52,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${sora.variable} ${grandstander.variable} ${caveat.variable}`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${sora.variable} ${emilys.variable} ${caveat.variable}`} suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

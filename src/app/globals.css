@@ -22,14 +22,15 @@
   --text-muted: #fff5ec; /* quase branco: leitura boa sobre o laranja */
 
   /* Letras do wordmark (cores da fachada) */
-  --pp-P: #ffd21f;
-  --pp-i: #7ed957;
-  --pp-m: #ff3ea5;
-  --pp-p: #3a8dff;
-  --pp-o1: #ff4b4b;
-  --pp-l: #8be04e;
-  --pp-h: #ff8a1f;
-  --pp-o2: #b36bff;
+  /* cores das letras iguais ao letreiro da fachada */
+  --pp-P: #fff200;
+  --pp-i: #9b3f8f;
+  --pp-m: #00aeef;
+  --pp-p: #e0567a;
+  --pp-o1: #5b7fc0;
+  --pp-l: #00a651;
+  --pp-h: #ed1c24;
+  --pp-o2: #6db33f;
 
   --grad-title: linear-gradient(90deg, #fff8d6, #ffe14d 55%, #fff3b0); /* amarelo-creme: destaca no fundo laranja */
   --grad-brand: linear-gradient(90deg, var(--pp-P), var(--pink-hot), var(--pp-p), var(--pp-o2));
@@ -59,7 +60,7 @@
   --color-text: var(--text);
   --color-muted: var(--text-muted);
   --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-grandstander), var(--font-sora), cursive;
+  --font-display: var(--font-emilys), var(--font-sora), cursive;
   --font-hand: var(--font-caveat), "Segoe Print", cursive;
 }
 
@@ -153,13 +154,13 @@ body {
 .pp-letter {
   display: inline-block;
   color: var(--c);
-  /* contorno escuro: as letras amarela/laranja não somem no fundo laranja */
-  -webkit-text-stroke: 0.035em #4a1a06;
+  font-weight: 400;
+  /* contorno cinza-grafite como no letreiro */
+  -webkit-text-stroke: 0.075em #3d3d3d;
   paint-order: stroke fill;
   text-shadow:
-    0 0.05em 0 #4a1a06,
-    0 0.09em 0 color-mix(in oklab, #4a1a06 60%, transparent),
-    0 0.12em 0.2em rgb(0 0 0 / 0.25);
+    0 0.04em 0 #3d3d3d,
+    0 0.08em 0.15em rgb(0 0 0 / 0.25);
 }
 
 /* =========================================================
