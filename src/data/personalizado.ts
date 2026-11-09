@@ -13,5 +13,5 @@ export const personalizado = {
   },
   legenda: "Mini doutora",
   cta: "Quero personalizar",
-  mensagem: "Olá! Vi no site e quero uma festa personalizada com a foto do meu filho(a) no Pimpolho Feast House 🎉",
+  mensagem: "Olá! Vi no site e quero uma festa personalizada com a foto do meu filho(a) na Pimpolho Feast House 🎉",
 };

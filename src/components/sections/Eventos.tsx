@@ -44,7 +44,7 @@ function EventCard({ evento, index }: { evento: Evento; index: number }) {
     };
   }, []);
 
-  const msg = `Olá! Vim pelo site e quero um orçamento para ${evento.titulo.toLowerCase()} no Pimpolho Feast House 🎉`;
+  const msg = `Olá! Vim pelo site e quero um orçamento para ${evento.titulo.toLowerCase()} na Pimpolho Feast House 🎉`;
   const onClick = (e: MouseEvent<HTMLAnchorElement>) => burstConfetti(e.clientX, e.clientY, 50);
 
   return (

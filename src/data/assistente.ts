@@ -9,7 +9,7 @@ export const assistente = {
   botao: "Tire suas dúvidas",
   titulo: "Assistente Pimpolho",
   status: "Responde na hora",
-  boasVindas: "Oi! 👋 Sou o assistente do Pimpolho. Posso te ajudar com dúvidas sobre o aluguel do espaço.",
+  boasVindas: "Oi! 👋 Sou o assistente da Pimpolho. Posso te ajudar com dúvidas sobre o aluguel do espaço.",
   placeholderInput: "Digite sua dúvida…",
   enviar: "Enviar",
   fechar: "Fechar assistente",
@@ -98,6 +98,6 @@ export const fluxoOrcamento = {
   recomecar: "Recomeçar",
   /** Modelo da mensagem — {evento}, {data}, {duracao}, {convidados}, {nome} são substituídos. */
   modeloMensagem:
-    "Olá! Quero um orçamento do Pimpolho Feast House. Evento: {evento} | Data: {data} | Duração: {duracao} horas | Convidados: {convidados} | Nome: {nome}",
+    "Olá! Quero um orçamento da Pimpolho Feast House. Evento: {evento} | Data: {data} | Duração: {duracao} horas | Convidados: {convidados} | Nome: {nome}",
   rotulos: { evento: "Evento", data: "Data", duracao: "Duração", convidados: "Convidados", nome: "Nome" },
 } as const;

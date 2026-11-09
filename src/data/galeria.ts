@@ -4,7 +4,7 @@
  */
 export const galeriaSecao = {
   eyebrow: "Galeria do espaço",
-  titulo: "Dá uma volta pelo Pimpolho.",
+  titulo: "Dá uma volta pela Pimpolho.",
   dica: "Clique para ampliar",
   fechar: "Fechar",
   anterior: "Foto anterior",

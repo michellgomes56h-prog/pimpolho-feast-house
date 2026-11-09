@@ -1,5 +1,5 @@
 /**
- * Contatos e localização do Pimpolho Feast House.
+ * Contatos e localização da Pimpolho Feast House.
  * Troque os valores entre colchetes pelos dados reais.
  * WhatsApp: só números, com DDI + DDD (ex.: "5511999999999").
  */
@@ -25,7 +25,7 @@ export const contato = {
    */
   mapaProvisorio: { lat: -15.7939, lng: -47.8828 },
   /** Mensagem padrão dos botões "Fazer orçamento". */
-  mensagemOrcamento: "Olá! Vim pelo site e quero um orçamento do Pimpolho Feast House 🎉",
+  mensagemOrcamento: "Olá! Vim pelo site e quero um orçamento da Pimpolho Feast House 🎉",
   /** Textos da seção "Onde estamos". */
   secao: {
     eyebrow: "Onde estamos",
