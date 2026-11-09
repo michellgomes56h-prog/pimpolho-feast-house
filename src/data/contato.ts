@@ -17,6 +17,8 @@ export const contato = {
   horario: "[HORÁRIO]",
   /** Capacidade máxima do espaço (pessoas). */
   capacidade: 76,
+  /** Data de abertura — os "anos de festas" são calculados a partir dela. */
+  inicio: "2022-07-15",
   latitude: "-28.2674",
   longitude: "-53.4969",
   /**

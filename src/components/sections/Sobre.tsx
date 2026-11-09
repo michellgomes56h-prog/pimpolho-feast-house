@@ -102,6 +102,7 @@ export function Sobre() {
                   <span className="h-1.5 w-1.5 rounded-full" style={{ background: ["var(--pp-P)", "var(--pp-m)", "var(--pp-p)", "var(--pp-i)"][i % 4] }} />
                   {n.label}
                 </dd>
+                {n.detalhe && <dd className="mt-1 pl-3.5 text-[0.7rem] text-[var(--text-muted)]/85 sm:text-xs">{n.detalhe}</dd>}
               </div>
             ))}
           </dl>

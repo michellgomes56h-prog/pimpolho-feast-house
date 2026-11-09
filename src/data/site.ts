@@ -1,5 +1,15 @@
 import { contato } from "./contato";
 
+/** Anos completos desde a abertura (atualiza sozinho a cada aniversário da casa). */
+function anosDesde(iso: string) {
+  const [a, m, d] = iso.split("-").map(Number);
+  const hoje = new Date();
+  let anos = hoje.getFullYear() - a;
+  if (hoje.getMonth() + 1 < m || (hoje.getMonth() + 1 === m && hoje.getDate() < d)) anos--;
+  return anos;
+}
+const dataInicio = contato.inicio.split("-").reverse().join("/");
+
 /**
  * Textos gerais do site (header, hero, SEO).
  * Edite aqui sem mexer nos componentes.
@@ -72,10 +82,15 @@ export const sobre = {
   selo: "Feito para festejar",
   /** valor: número para o contador animado. Enquanto for null, mostra o placeholder. */
   numeros: [
-    { valor: contato.capacidade as number | null, placeholder: "[CAPACIDADE]", prefixo: "até", sufixo: "", label: "convidados" },
-    { valor: null as number | null, placeholder: "[ANOS]", prefixo: "", sufixo: "", label: "anos de festas" },
-    { valor: null as number | null, placeholder: "[EVENTOS]", prefixo: "", sufixo: "+", label: "eventos realizados" },
-    { valor: null as number | null, placeholder: "[AMBIENTES]", prefixo: "", sufixo: "", label: "ambientes" },
+    { valor: contato.capacidade as number | null, placeholder: "[CAPACIDADE]", prefixo: "até", sufixo: "", label: "convidados", detalhe: "" },
+    {
+      valor: anosDesde(contato.inicio) as number | null,
+      placeholder: "[ANOS]",
+      prefixo: "",
+      sufixo: "",
+      label: "anos de festas",
+      detalhe: `desde ${dataInicio}`,
+    },
   ],
 };
 
