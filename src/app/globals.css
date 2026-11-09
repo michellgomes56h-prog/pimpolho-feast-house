@@ -685,6 +685,20 @@ body {
 .pp-popup a.leaflet-popup-close-button {
   color: #fff;
 }
+.leaflet-control-layers {
+  background: var(--bg-deep) !important;
+  color: #fff !important;
+  border: 1px solid rgb(255 255 255 / 0.2) !important;
+  border-radius: 12px !important;
+  font-family: var(--font-sans) !important;
+}
+.leaflet-control-layers-expanded {
+  padding: 8px 12px !important;
+}
+.leaflet-control-layers label {
+  font-size: 0.85rem;
+  padding: 2px 0;
+}
 .leaflet-control-zoom a {
   background: var(--bg-deep) !important;
   color: #fff !important;

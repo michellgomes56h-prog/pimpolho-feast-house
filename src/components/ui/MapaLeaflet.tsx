@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useEffect, useRef } from "react";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { LayerGroup, LayersControl, MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 
 export type MapaProps = {
   lat: number;
@@ -33,7 +33,7 @@ function Behaviour({ lat, lng, fly, hintRef }: { lat: number; lng: number; fly: 
     flown.current = true;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) map.setView([lat, lng], 16);
-    else map.flyTo([lat, lng], 16, { duration: 3.2, easeLinearity: 0.15 });
+    else map.flyTo([lat, lng], 16, { duration: 2.4, easeLinearity: 0.2 });
   }, [fly, lat, lng, map]);
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function MapaLeaflet({ lat, lng, nome, endereco, labels, fly }: M
     <div className="relative h-full w-full">
       <MapContainer
         center={[lat, lng]}
-        zoom={4}
+        zoom={12}
         scrollWheelZoom={false}
         dragging
         zoomControl
@@ -99,12 +99,37 @@ export default function MapaLeaflet({ lat, lng, nome, endereco, labels, fly }: M
         className="h-full w-full"
         aria-label={`Mapa: ${nome}`}
       >
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-          subdomains="abcd"
-          maxZoom={20}
-        />
+        {/* Satélite com ruas e nomes (estilo Google Maps "satélite"), sem chave de API */}
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer checked name="Satélite">
+            <LayerGroup>
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                attribution='Imagens &copy; <a href="https://www.esri.com">Esri</a>, Maxar, Earthstar Geographics'
+                maxNativeZoom={19}
+                maxZoom={20}
+              />
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x}"
+                maxNativeZoom={19}
+                maxZoom={20}
+              />
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}"
+                maxNativeZoom={19}
+                maxZoom={20}
+              />
+            </LayerGroup>
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Mapa">
+            <TileLayer
+              url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+              maxNativeZoom={19}
+              maxZoom={20}
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
         <Marker position={[lat, lng]} icon={pin} ref={markerRef} title={nome}>
           <Popup className="pp-popup" closeButton>
             <div className="min-w-[180px] max-w-[240px]">
