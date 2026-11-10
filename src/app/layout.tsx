@@ -15,6 +15,8 @@ const caveat = Caveat({ variable: "--font-caveat", subsets: ["latin"], display: 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url.includes("[") ? "http://localhost:3000" : site.url),
   title: site.seo.title,
+  alternates: { canonical: "/" },
+  keywords: ["festa infantil Panambi", "espaço de festas Panambi", "salão de festas infantil", "aniversário infantil", "chá de bebê", "chá revelação", "festa personalizada", "Pimpolho Feast House"],
   description: site.seo.description,
   openGraph: {
     type: "website",

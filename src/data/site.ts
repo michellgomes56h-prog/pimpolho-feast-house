@@ -20,7 +20,7 @@ export const site = {
   subMarca: "Feast House",
   /** Se você colocar o logo em /public/brand/pimpolho.svg, troque para "/brand/pimpolho.svg". */
   logoSvg: null as string | null,
-  url: "https://[DOMINIO].com.br",
+  url: "https://pimpolhofesthouse.online",
   creditos: { texto: "Site por VOID DEV", url: "#" },
   seo: {
     title: "Pimpolho Feast House — Espaço para festas e eventos",
