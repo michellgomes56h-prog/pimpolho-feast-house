@@ -78,7 +78,6 @@ export function Footer() {
               <p>
                 {contato.cidade} - {contato.uf}
               </p>
-              <p className="pt-2 text-[var(--text-muted)]">{contato.horario}</p>
             </address>
           </div>
         </div>

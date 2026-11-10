@@ -14,9 +14,9 @@ const MapaLeaflet = dynamic(() => import("@/components/ui/MapaLeaflet"), {
 
 const num = (v: string) => (/^-?\d+(\.\d+)?$/.test(v.trim()) ? Number(v) : null);
 
-function Info({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
+function Info({ icon, label, children, className = "" }: { icon: ReactNode; label: string; children: ReactNode; className?: string }) {
   return (
-    <div className="flex min-w-0 flex-col gap-1.5 sm:flex-row sm:gap-4 sm:border-t sm:border-white/10 sm:py-5 sm:first:border-t-0 sm:first:pt-0">
+    <div className={`flex min-w-0 flex-col gap-1.5 sm:flex-row sm:gap-4 sm:border-t sm:border-white/10 sm:py-5 sm:first:border-t-0 sm:first:pt-0 ${className}`}>
       <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/[0.06] text-[var(--lime-cta)] sm:h-11 sm:w-11 sm:rounded-xl">{icon}</span>
       <div className="min-w-0">
         <p className="eyebrow !text-[0.6rem] sm:!text-[0.66rem]">{label}</p>
@@ -100,17 +100,6 @@ export function OndeEstamos() {
                 </span>
               </Info>
               <Info
-                label={s.labels.horario}
-                icon={
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" {...ic} aria-hidden>
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M12 7v5l3 2" />
-                  </svg>
-                }
-              >
-                {contato.horario}
-              </Info>
-              <Info
                 label={s.labels.whatsapp}
                 icon={
                   <svg viewBox="0 0 24 24" className="h-5 w-5" {...ic} aria-hidden>
@@ -125,6 +114,7 @@ export function OndeEstamos() {
               </Info>
               <Info
                 label={s.labels.instagram}
+                className="col-span-2 sm:col-span-1"
                 icon={
                   <svg viewBox="0 0 24 24" className="h-5 w-5" {...ic} aria-hidden>
                     <rect x="3.5" y="3.5" width="17" height="17" rx="5" />

@@ -14,7 +14,6 @@ export const contato = {
   cidade: "Panambi",
   uf: "RS",
   cep: "98280-000",
-  horario: "[HORÁRIO]",
   /** Capacidade máxima do espaço (pessoas). */
   capacidade: 76,
   /** Data de abertura — os "anos de festas" são calculados a partir dela. */
@@ -32,7 +31,7 @@ export const contato = {
   secao: {
     eyebrow: "Onde estamos",
     titulo: "Vem fazer festa com a gente.",
-    labels: { endereco: "Endereço", horario: "Atendimento", whatsapp: "WhatsApp", instagram: "Instagram" },
+    labels: { endereco: "Endereço", whatsapp: "WhatsApp", instagram: "Instagram" },
     dicaZoom: "Use Ctrl + rolagem (ou clique no mapa) para dar zoom",
     coordenadasPendentes: "Localização provisória — coordenadas pendentes",
   },
